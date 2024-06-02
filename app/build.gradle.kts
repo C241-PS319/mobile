@@ -66,7 +66,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
     //u crop
-//    implementation(libs.ucrop)
+    implementation(libs.ucrop)
 
     //database
     implementation(libs.androidx.room.runtime)
