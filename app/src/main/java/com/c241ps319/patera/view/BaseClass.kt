@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.c241ps319.patera.R
+import com.c241ps319.patera.view.history.HistoryActivity
 
 open class BaseClass: AppCompatActivity() {
 
