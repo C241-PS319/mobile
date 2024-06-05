@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Patera</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="already_have_account">Already have account?</string>
+    <string name="login">Login</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="dont_have_account">Don\'t have account?</string>
+    <string name="register_now">Register</string>
+    <string name="forget_password">Forget Password?</string>
 </resources>
