@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.c241ps319.patera.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_history"
+        android:name="com.c241ps319.patera.ui.history.HistoryFragment"
+        android:label="@string/title_history"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/navigation_scan"
+        android:name="com.c241ps319.patera.ui.scan.ScanFragment"
+        tools:layout="@layout/fragment_scan" />
+
+    <fragment
+        android:id="@+id/navigation_report"
+        android:name="com.c241ps319.patera.ui.report.ReportFragment"
+        android:label="@string/title_report"
+        tools:layout="@layout/fragment_report" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.c241ps319.patera.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile"/>
+</navigation>
