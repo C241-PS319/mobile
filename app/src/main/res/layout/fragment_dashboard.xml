@@ -38,24 +38,42 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dashboard_date" />
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_date"
+        tools:ignore="NotSibling" />
 
-    <TextView
-        android:id="@+id/panduan_pen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
-        android:gravity="center_vertical"
-        android:lineSpacingExtra="-2sp"
-        android:lineHeight="20sp"
-        style="@style/TextAppearance.AppCompat.Headline"
-        android:text="@string/panduan_pen"
-        android:textAppearance="@style/panduan_pen"
-        app:layout_constraintStart_toStartOf="@+id/dashboard_date"
+
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+
+
+    <View
+        android:id="@+id/rectangle_8"
+        android:layout_width="328dp"
+        android:layout_height="160dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rectangle_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialDivider" />
 
     <TextView
-        android:id="@+id/untuk_melak"
+        android:id="@+id/panduan_title"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:lineHeight="20sp"
+        android:lineSpacingExtra="-2sp"
+        android:text="@string/panduan_title"
+        android:textAppearance="@style/panduan_title"
+        app:layout_constraintStart_toStartOf="@+id/dashboard_date"
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_8" />
+
+    <TextView
+        android:id="@+id/panduan_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -64,13 +82,13 @@
         android:gravity="center_vertical"
         android:lineSpacingExtra="2sp"
         style="@style/TextAppearance.AppCompat.Body1"
-        android:text="@string/untuk_melak"
-        android:textAppearance="@style/untuk_melak"
-        app:layout_constraintStart_toStartOf="@+id/panduan_pen"
-        app:layout_constraintTop_toBottomOf="@+id/panduan_pen" />
+        android:text="@string/panduan_desc"
+        android:textAppearance="@style/panduan_desc"
+        app:layout_constraintStart_toStartOf="@+id/panduan_title"
+        app:layout_constraintTop_toBottomOf="@+id/panduan_title" />
 
     <TextView
-        android:id="@+id/tekan_ikon_"
+        android:id="@+id/panduan_bullet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -80,10 +98,10 @@
         android:lineSpacingExtra="2sp"
         android:lineHeight="18sp"
         style="@style/TextAppearance.AppCompat.Body1"
-        android:text="@string/tekan_ikon_"
-        android:textAppearance="@style/tekan_ikon_"
+        android:text="@string/panduan_bullet"
+        android:textAppearance="@style/panduan_bullet"
         app:layout_constraintStart_toStartOf="@+id/dashboard_date"
-        app:layout_constraintTop_toBottomOf="@+id/untuk_melak"
+        app:layout_constraintTop_toBottomOf="@+id/panduan_desc" />
         />
 
     <TextView
