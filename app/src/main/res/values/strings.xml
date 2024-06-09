@@ -5,4 +5,19 @@
     <string name="title_report">Report</string>
     <string name="title_profile">Profile</string>
     <string name="title_scan">Scan</string>
+
+    <string name="halo_nama">Halo ${first_name}</string>
+    <string name="dashboard_date">Senin, 27 Mei 2024</string>
+    <string name="panduan_title">
+        Panduan Penggunaan
+    </string>
+
+    <string name="panduan_desc">
+        Untuk melakukan prediksi Anda dapat melakukan tahapan sebagai berikut:
+    </string>
+
+    <string name="panduan_bullet">
+        • Tekan ikon kamera yang ada pada menu navigasi di bawah\n• Pilih sumber gambar yang akan kamu gunakan. Kamu dapat memilih mengambil foto secara langsung atau mengambil dari galeri kamu\n• Jika kamu sudah memilih foto yang akan digunakan selanjutnya kamu dapat mengklik tombol untuk proses gambar\n• Gambar kamu berhasil diproses dan mendapatkan hasil prediksi dari sistem serta kamu akan mendapat saran dari sistem\n• Seluruh gambar yang pernah kamu proses akan tersimpan di dalam riwayat
+    </string>
+
 </resources>
