@@ -19,5 +19,14 @@
     <string name="panduan_bullet">
         • Tekan ikon kamera yang ada pada menu navigasi di bawah\n• Pilih sumber gambar yang akan kamu gunakan. Kamu dapat memilih mengambil foto secara langsung atau mengambil dari galeri kamu\n• Jika kamu sudah memilih foto yang akan digunakan selanjutnya kamu dapat mengklik tombol untuk proses gambar\n• Gambar kamu berhasil diproses dan mendapatkan hasil prediksi dari sistem serta kamu akan mendapat saran dari sistem\n• Seluruh gambar yang pernah kamu proses akan tersimpan di dalam riwayat
     </string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
 
 </resources>
