@@ -59,4 +59,6 @@ dependencies {
 
     implementation(libs.circleimageview)
     implementation(libs.retrofit2.converter.gson)
+
+    implementation(libs.dotsindicator)
 }
