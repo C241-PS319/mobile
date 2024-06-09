@@ -7,16 +7,97 @@
     tools:context=".ui.dashboard.DashboardFragment">
 
     <TextView
+        android:id="@+id/halo_nama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:gravity="center_vertical"
+        android:text="@string/halo_nama"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:textAppearance="@style/halo_nama"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dashboard_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="-2sp"
+        android:text="@string/dashboard_date"
+        android:textAppearance="@style/dashboard_date"
+        app:layout_constraintStart_toStartOf="@+id/halo_nama"
+        app:layout_constraintTop_toBottomOf="@+id/halo_nama" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/materialDivider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_date" />
+
+    <TextView
+        android:id="@+id/panduan_pen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="-2sp"
+        android:lineHeight="20sp"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:text="@string/panduan_pen"
+        android:textAppearance="@style/panduan_pen"
+        app:layout_constraintStart_toStartOf="@+id/dashboard_date"
+        app:layout_constraintTop_toBottomOf="@+id/materialDivider" />
+
+    <TextView
+        android:id="@+id/untuk_melak"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="2sp"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:text="@string/untuk_melak"
+        android:textAppearance="@style/untuk_melak"
+        app:layout_constraintStart_toStartOf="@+id/panduan_pen"
+        app:layout_constraintTop_toBottomOf="@+id/panduan_pen" />
+
+    <TextView
+        android:id="@+id/tekan_ikon_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="2sp"
+        android:lineHeight="18sp"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:text="@string/tekan_ikon_"
+        android:textAppearance="@style/tekan_ikon_"
+        app:layout_constraintStart_toStartOf="@+id/dashboard_date"
+        app:layout_constraintTop_toBottomOf="@+id/untuk_melak"
+        />
+
+    <TextView
         android:id="@+id/text_dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_date"
+        app:layout_constraintVertical_bias="0.831" />
 </androidx.constraintlayout.widget.ConstraintLayout>
