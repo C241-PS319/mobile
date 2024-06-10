@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary_50"
     app:layoutDescription="@xml/activity_onboard_scene"
-    tools:context=".ui.onboard.OnboardActivity">
+    tools:context=".ui.splash_onboard.SplashOnboardActivity">
 
     <fragment
         android:id="@+id/fragmentContainerView"

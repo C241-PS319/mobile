@@ -30,5 +30,11 @@
     <string name="login_failed">"Login failed"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_onboard1">Langkah Cerdas untuk Deteksi Dini Penyakit</string>
+    <string name="desc_onboard1">Temukan pengalaman baru bersama kami, nikmati sensasi terbaik dalam upaya melakukan pemeliharaan tanaman kamu</string>
+    <string name="next">Berikutnya</string>
+    <string name="title_onboard2">Ciptakan Masa Depan Berkelanjutan</string>
+    <string name="desc_onboard2">Dilengkapi dengan fitur kecerdasan buatan untuk membantu kamu menganalisis jenis penyakit dan metode penanganannya.</string>
+    <string name="start">Ayo Mulai!</string>
 
 </resources>

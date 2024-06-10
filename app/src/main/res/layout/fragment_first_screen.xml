@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_50"
-    app:layoutDescription="@xml/activity_onboard_scene"
-    tools:context=".ui.onboard.OnboardActivity">
+    app:layoutDescription="@xml/activity_onboard_scene">
 
     <ImageView
         android:id="@+id/image_onboard1"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/title_onboard1"
         android:src="@drawable/onboard"
         app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,34 +56,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guidelineHorizontal3">
 
-        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
-            android:id="@+id/dots_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="32dp"
-            app:dotsColor="@color/gray"
-            app:dotsCornerRadius="8dp"
-            app:dotsSize="16dp"
-            app:dotsSpacing="4dp"
-            app:dotsWidthFactor="2.5"
-            app:progressMode="true"
-            app:selectedDotColor="@color/primary_500" />
-
         <TextView
             android:id="@+id/title_onboard"
             style="@style/heading_large_green"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Langkah Cerdas untuk Deteksi Dini Penyakit" />
+            android:layout_marginTop="64dp"
+            android:text="@string/title_onboard1" />
 
         <TextView
             android:id="@+id/desc_onboard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Temukan pengalaman baru bersama kami, nikmati sensasi terbaik dalam upaya melakukan pemeliharaan tanaman kamu" />
+            android:text="@string/desc_onboard1" />
 
         <Space
             android:layout_width="match_parent"
@@ -94,9 +80,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:text="Berikutnya"
             android:layout_marginBottom="32dp"
-            />
+            android:text="@string/next" />
 
 
     </LinearLayout>

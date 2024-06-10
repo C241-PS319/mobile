@@ -1,4 +1,4 @@
-package com.c241ps319.patera.ui.onboard
+package com.c241ps319.patera.ui.splash_onboard
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -7,7 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.c241ps319.patera.R
 
-class OnboardActivity : AppCompatActivity() {
+class SplashOnboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

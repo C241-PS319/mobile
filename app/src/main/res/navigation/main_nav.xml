@@ -7,12 +7,15 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.c241ps319.patera.SplashFragment"
+        android:name="com.c241ps319.patera.ui.splash_onboard.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/splashFragment_to_mainActivity"
             app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_splashFragment_to_onboardFragment"
+            app:destination="@id/onboardFragment" />
     </fragment>
     <activity
         android:id="@+id/mainActivity"
@@ -21,9 +24,8 @@
         tools:layout="@layout/activity_main"
         />
     <fragment
-        android:id="@+id/firstScreenFragment"
-        android:name="com.c241ps319.patera.ui.onboard.FirstScreenFragment"
-        android:label="FirstScreenFragment"
-        tools:layout="@layout/fragment_first_screen"
-        />
+        android:id="@+id/onboardFragment"
+        android:name="com.c241ps319.patera.ui.splash_onboard.OnboardFragment"
+        android:label="fragment_onboard"
+        tools:layout="@layout/fragment_onboard" />
 </navigation>

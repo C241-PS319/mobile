@@ -1,4 +1,4 @@
-package com.c241ps319.patera
+package com.c241ps319.patera.ui.splash_onboard
 
 import android.os.Bundle
 import android.os.Handler
@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.c241ps319.patera.R
 
 class SplashFragment : Fragment() {
 
@@ -18,7 +19,7 @@ class SplashFragment : Fragment() {
 
         // Splash
         Handler(Looper.getMainLooper()).postDelayed({
-            findNavController().navigate(R.id.splashFragment_to_mainActivity)
+            findNavController().navigate(R.id.action_splashFragment_to_onboardFragment)
         }, 3000)
 
         return inflater.inflate(R.layout.fragment_splash, container, false)
