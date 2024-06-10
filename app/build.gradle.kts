@@ -61,4 +61,5 @@ dependencies {
     implementation(libs.retrofit2.converter.gson)
 
     implementation(libs.dotsindicator)
+    implementation(libs.androidx.viewpager2)
 }
