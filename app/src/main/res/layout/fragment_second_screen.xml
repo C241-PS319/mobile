@@ -50,7 +50,7 @@
         android:id="@+id/popup"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:background="@drawable/shape_radius_topleftright"
         android:orientation="vertical"
         android:paddingHorizontal="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,6 +78,7 @@
 
         <Button
             android:id="@+id/btn_start"
+            style="@style/main_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
