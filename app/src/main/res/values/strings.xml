@@ -36,5 +36,6 @@
     <string name="title_onboard2">Ciptakan Masa Depan Berkelanjutan</string>
     <string name="desc_onboard2">Dilengkapi dengan fitur kecerdasan buatan untuk membantu kamu menganalisis jenis penyakit dan metode penanganannya.</string>
     <string name="start">Ayo Mulai!</string>
+    <string name="skip">Lewati</string>
 
 </resources>

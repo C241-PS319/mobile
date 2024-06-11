@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <font
+        android:font="@font/bold"
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        tools:targetApi="o" />
+    <font
+        android:font="@font/medium"
+        android:fontStyle="normal"
+        android:fontWeight="500"
+        tools:targetApi="o" />
+    <font
+        android:font="@font/bold"
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        tools:targetApi="o" />
+</font-family>
