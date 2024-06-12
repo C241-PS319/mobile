@@ -8,8 +8,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 class ViewPagerAdapter(
     listFragment: ArrayList<Fragment>,
     fragmentManager: FragmentManager,
-    lifecyle: Lifecycle
-) : FragmentStateAdapter(fragmentManager, lifecyle) {
+    lifecycle: Lifecycle
+) : FragmentStateAdapter(fragmentManager, lifecycle) {
 
     private val fragmentList = listFragment
     override fun getItemCount(): Int {
