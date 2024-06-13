@@ -9,7 +9,7 @@
     app:layoutDescription="@xml/activity_onboard_scene"
     tools:context=".ui.splash_onboard.SplashOnboardActivity">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"

@@ -11,7 +11,7 @@ class SplashOnboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        getSupportActionBar()?.hide()
+        supportActionBar?.hide()
         setContentView(R.layout.activity_onboard)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
