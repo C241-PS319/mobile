@@ -1,6 +1,7 @@
 package com.c241ps319.patera.ui.auth.login
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -14,17 +15,24 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.c241ps319.patera.R
 import com.c241ps319.patera.databinding.ActivityLoginBinding
+import com.c241ps319.patera.ui.auth.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
 
-//    private lateinit var loginViewModel: LoginViewModel
-//    private lateinit var binding: ActivityLoginBinding
+    //    private lateinit var loginViewModel: LoginViewModel
+    private lateinit var binding: ActivityLoginBinding
+
+    //
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 //
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//        binding = ActivityLoginBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.tvRegister.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
 //
 //        val username = binding.username
 //        val password = binding.password
@@ -110,7 +118,7 @@ class LoginActivity : AppCompatActivity() {
 //    private fun showLoginFailed(@StringRes errorString: Int) {
 //        Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
 //    }
-//}
+    }
 //
 ///**
 // * Extension function to simplify setting an afterTextChanged action to EditText components.

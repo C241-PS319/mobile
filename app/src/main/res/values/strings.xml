@@ -53,5 +53,13 @@
     <string name="login_with_google">Masuk menggunakan Google</string>
     <string name="Hello">Halo</string>
     <string name="info_register">Buat akun untuk menjelajah lebih lanjut</string>
+    <string name="horeee">Horeee!</string>
+    <string name="info_success_register">Akun kamu berhasil dibuat</string>
+    <string name="info_success_register2">Sekarang kamu bisa menjelajah lebih jauh</string>
+    <string name="login_now">Masuk Sekarang</string>
+    <string name="hint_name">Masukkan nama lengkap</string>
+    <string name="hint_email">Masukkan Email</string>
+    <string name="hint_password">Masukkan Password</string>
+    <string name="hint_confirm_password">Masukkan kembali Password</string>
 
 </resources>

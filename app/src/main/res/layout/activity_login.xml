@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:alpha="0"
+
         android:text="@string/welcome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,7 +24,7 @@
         style="@style/text_regular_xs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:alpha="0"
+
         android:text="@string/info_login"
         app:layout_constraintStart_toStartOf="@id/welcome"
         app:layout_constraintTop_toBottomOf="@id/welcome"
@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:alpha="0"
+
         android:text="@string/email"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@id/welcome"
@@ -59,7 +59,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:alpha="0"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailTextView"
@@ -71,6 +71,7 @@
             android:layout_height="wrap_content"
             android:drawablePadding="4dp"
             android:ems="10"
+            android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -80,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:alpha="0"
+
         android:text="@string/password"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@id/emailTextView"
@@ -93,19 +94,20 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:alpha="0"
+
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextView"
         tools:alpha="100">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ed_login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="4dp"
             android:ems="10"
+            android:hint="@string/hint_password"
             android:inputType="textPassword"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -128,6 +130,7 @@
         android:layout_marginBottom="16dp"
         android:orientation="vertical"
         android:paddingHorizontal="16dp"
+
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
@@ -243,8 +246,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="28dp"
-            android:layout_marginBottom="50dp"
-            android:alpha="0"
             android:orientation="horizontal"
             tools:alpha="100">
 

@@ -46,6 +46,13 @@
         <item name="android:textColor">@color/primary_500</item>
     </style>
 
+    <style name="heading_xlarge_green" parent="text_bold">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">30sp</item>
+        <item name="textAppearanceLineHeightEnabled">true</item>
+        <item name="android:textColor">@color/primary_500</item>
+    </style>
+
     <style name="heading_medium" parent="text_medium">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
@@ -72,6 +79,11 @@
 
     <style name="text_semibold_xs" parent="text_medium">
         <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text_semibold_sm" parent="text_medium">
+        <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
