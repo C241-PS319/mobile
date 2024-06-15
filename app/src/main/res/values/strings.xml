@@ -45,5 +45,13 @@
     <string name="login">Masuk</string>
     <string name="info_login">Masuk untuk menjelajah lebih jauh</string>
     <string name="or">atau</string>
+    <string name="name">Nama</string>
+    <string name="confirm_password">Konfirmasi Password</string>
+    <string name="register">Buat Akun</string>
+    <string name="register_google">Daftar menggunakan Google</string>
+    <string name="already_have_an_account">Sudah memiliki akun?</string>
+    <string name="login_with_google">Masuk menggunakan Google</string>
+    <string name="Hello">Halo</string>
+    <string name="info_register">Buat akun untuk menjelajah lebih lanjut</string>
 
 </resources>

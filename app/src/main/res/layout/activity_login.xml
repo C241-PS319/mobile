@@ -225,10 +225,11 @@
 
                 <TextView
                     android:id="@+id/tv_google"
+                    style="@style/heading_sm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:text="Masuk menggunakan Google"
+                    android:text="@string/login_with_google"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/iv_google"
                     app:layout_constraintTop_toTopOf="parent" />
