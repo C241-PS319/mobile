@@ -24,7 +24,7 @@
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
+    <string name="welcome">"Selamat Datang"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
@@ -37,5 +37,29 @@
     <string name="desc_onboard2">Dilengkapi dengan fitur kecerdasan buatan untuk membantu kamu menganalisis jenis penyakit dan metode penanganannya.</string>
     <string name="start">Ayo Mulai!</string>
     <string name="skip">Lewati</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Lupa Password?</string>
+    <string name="dont_have_account">Belum memiliki akun?</string>
+    <string name="register_now">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="info_login">Masuk untuk menjelajah lebih jauh</string>
+    <string name="or">atau</string>
+    <string name="name">Nama</string>
+    <string name="confirm_password">Konfirmasi Password</string>
+    <string name="register">Buat Akun</string>
+    <string name="register_google">Daftar menggunakan Google</string>
+    <string name="already_have_an_account">Sudah memiliki akun?</string>
+    <string name="login_with_google">Masuk menggunakan Google</string>
+    <string name="Hello">Halo</string>
+    <string name="info_register">Buat akun untuk menjelajah lebih lanjut</string>
+    <string name="horeee">Horeee!</string>
+    <string name="info_success_register">Akun kamu berhasil dibuat</string>
+    <string name="info_success_register2">Sekarang kamu bisa menjelajah lebih jauh</string>
+    <string name="login_now">Masuk Sekarang</string>
+    <string name="hint_name">Masukkan nama lengkap</string>
+    <string name="hint_email">Masukkan Email</string>
+    <string name="hint_password">Masukkan Password</string>
+    <string name="hint_confirm_password">Masukkan kembali Password</string>
 
 </resources>
