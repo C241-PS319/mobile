@@ -52,7 +52,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="36dp"
         android:contentDescription="@string/illustration"
-        android:src="@drawable/img_feedback"
+        android:src="@drawable/svg_feedback"
         app:layout_constraintBottom_toTopOf="@+id/descriptionTextView"
         app:layout_constraintDimensionRatio="2"
         app:layout_constraintEnd_toEndOf="parent"
