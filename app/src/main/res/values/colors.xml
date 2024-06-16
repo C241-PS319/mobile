@@ -5,6 +5,9 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="text_800">#434347</color>
+    <color name="text_500">#71717A</color>
+    <color name="text_50">#F5F5F6</color>
     <color name="primary_500">#22C55E</color>
     <color name="primary_400">#4ADE80</color>
     <color name="primary_200">#BBF7D0</color>
