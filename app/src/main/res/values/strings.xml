@@ -71,7 +71,6 @@
     <string name="dummy_username">David Alexander</string>
     <string name="ubah_profil">Ubah Profil</string>
     <string name="nama_lengkap">Nama Lengkap</string>
-    <string name="email">Email</string>
     <string name="dummy_email">alex471@gmail.com</string>
     <string name="simpan">Simpan</string>
 </resources>
