@@ -62,4 +62,16 @@
     <string name="hint_password">Masukkan Password</string>
     <string name="hint_confirm_password">Masukkan kembali Password</string>
 
+    <string name="profile_image">Profile Image</string>
+    <string name="edit_profile_icon">Edit Profile Icon</string>
+    <string name="arrow_icon">Arrow Icon</string>
+    <string name="about_us_icon">About Us Icon</string>
+    <string name="logout_icon">Logout Icon</string>
+    <string name="back_button">Back Button</string>
+    <string name="dummy_username">David Alexander</string>
+    <string name="ubah_profil">Ubah Profil</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="email">Email</string>
+    <string name="dummy_email">alex471@gmail.com</string>
+    <string name="simpan">Simpan</string>
 </resources>
