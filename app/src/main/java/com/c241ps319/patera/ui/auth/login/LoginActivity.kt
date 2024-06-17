@@ -33,6 +33,8 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+
+        supportActionBar?.hide();
 //
 //        val username = binding.username
 //        val password = binding.password

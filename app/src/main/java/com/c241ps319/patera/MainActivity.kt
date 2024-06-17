@@ -46,6 +46,11 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        binding.ivScan.setOnClickListener {
+            binding.navView.selectedItemId = R.id.navigation_scan
+        }
+        supportActionBar?.hide();
     }
 
     private fun moveToLogin() {

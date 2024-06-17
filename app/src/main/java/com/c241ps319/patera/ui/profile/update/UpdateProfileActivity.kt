@@ -16,5 +16,7 @@ class UpdateProfileActivity : AppCompatActivity() {
         binding.backButton.setOnClickListener {
             finish()
         }
+
+        supportActionBar?.hide();
     }
 }
