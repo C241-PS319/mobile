@@ -1,5 +1,6 @@
 [versions]
-agp = "8.4.1"
+agp = "8.5.0"
+dotsindicator = "5.0"
 kotlin = "1.9.21"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -9,16 +10,21 @@ appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
-lifecycleLivedataKtx = "2.8.1"
-lifecycleViewmodelKtx = "2.8.1"
+lifecycleLivedataKtx = "2.8.2"
+lifecycleViewmodelKtx = "2.8.2"
 navigationFragmentKtx = "2.7.7"
 navigationUiKtx = "2.7.7"
 legacySupportV4 = "1.0.0"
-fragmentKtx = "1.7.1"
+fragmentKtx = "1.8.0"
 circleimageview = "3.1.0"
+annotation = "1.8.0"
+converterGson = "2.9.0"
+viewpager2 = "1.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
+dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "dotsindicator" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -33,6 +39,8 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacySupportV4" }
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
 circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
+androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
+retrofit2-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

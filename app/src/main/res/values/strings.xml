@@ -19,5 +19,64 @@
     <string name="panduan_bullet">
         • Tekan ikon kamera yang ada pada menu navigasi di bawah\n• Pilih sumber gambar yang akan kamu gunakan. Kamu dapat memilih mengambil foto secara langsung atau mengambil dari galeri kamu\n• Jika kamu sudah memilih foto yang akan digunakan selanjutnya kamu dapat mengklik tombol untuk proses gambar\n• Gambar kamu berhasil diproses dan mendapatkan hasil prediksi dari sistem serta kamu akan mendapat saran dari sistem\n• Seluruh gambar yang pernah kamu proses akan tersimpan di dalam riwayat
     </string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Selamat Datang"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_onboard1">Langkah Cerdas untuk Deteksi Dini Penyakit</string>
+    <string name="desc_onboard1">Temukan pengalaman baru bersama kami, nikmati sensasi terbaik dalam upaya melakukan pemeliharaan tanaman kamu</string>
+    <string name="next">Berikutnya</string>
+    <string name="title_onboard2">Ciptakan Masa Depan Berkelanjutan</string>
+    <string name="desc_onboard2">Dilengkapi dengan fitur kecerdasan buatan untuk membantu kamu menganalisis jenis penyakit dan metode penanganannya.</string>
+    <string name="start">Ayo Mulai!</string>
+    <string name="skip">Lewati</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Lupa Password?</string>
+    <string name="dont_have_account">Belum memiliki akun?</string>
+    <string name="register_now">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="info_login">Masuk untuk menjelajah lebih jauh</string>
+    <string name="or">atau</string>
+    <string name="name">Nama</string>
+    <string name="confirm_password">Konfirmasi Password</string>
+    <string name="register">Buat Akun</string>
+    <string name="register_google">Daftar menggunakan Google</string>
+    <string name="already_have_an_account">Sudah memiliki akun?</string>
+    <string name="login_with_google">Masuk menggunakan Google</string>
+    <string name="Hello">Halo</string>
+    <string name="info_register">Buat akun untuk menjelajah lebih lanjut</string>
+    <string name="horeee">Horeee!</string>
+    <string name="info_success_register">Akun kamu berhasil dibuat</string>
+    <string name="info_success_register2">Sekarang kamu bisa menjelajah lebih jauh</string>
+    <string name="login_now">Masuk Sekarang</string>
+    <string name="hint_name">Masukkan nama lengkap</string>
+    <string name="hint_email">Masukkan Email</string>
+    <string name="hint_password">Masukkan Password</string>
+    <string name="hint_confirm_password">Masukkan kembali Password</string>
 
+    <string name="profile_image">Profile Image</string>
+    <string name="edit_profile_icon">Edit Profile Icon</string>
+    <string name="arrow_icon">Arrow Icon</string>
+    <string name="about_us_icon">About Us Icon</string>
+    <string name="logout_icon">Logout Icon</string>
+    <string name="back_button">Back Button</string>
+    <string name="dummy_username">David Alexander</string>
+    <string name="ubah_profil">Ubah Profil</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="dummy_email">alex471@gmail.com</string>
+    <string name="simpan">Simpan</string>
+
+    <string name="title_report_problem">Laporkan Masalah</string>
+    <string name="subtitle_report_problem">Kamu punya masalah? Yuk buat laporan</string>
+    <string name="description_report_problem">Laporan yang kamu berikan berguna untuk meningkatkan kualitas produk kami</string>
+    <string name="report_button_text">Laporkan Masalah</string>
+    <string name="illustration">Illustration of reporting a problem</string>
 </resources>

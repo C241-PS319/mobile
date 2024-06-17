@@ -22,16 +22,16 @@ class ReportFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this).get(ReportViewModel::class.java)
+        val reportViewModel =
+            ViewModelProvider(this)[ReportViewModel::class.java]
 
         _binding = FragmentReportBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textReport
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+//        val textView: TextView = binding.textReport
+//        reportViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
         return root
     }
 
