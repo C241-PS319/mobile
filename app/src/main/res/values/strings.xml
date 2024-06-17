@@ -63,4 +63,21 @@
     <string name="hint_confirm_password">Masukkan kembali Password</string>
     <string name="image_classifier_failed">"    Image classifier failed to initialize. See error logs for details"</string>
 
+    <string name="profile_image">Profile Image</string>
+    <string name="edit_profile_icon">Edit Profile Icon</string>
+    <string name="arrow_icon">Arrow Icon</string>
+    <string name="about_us_icon">About Us Icon</string>
+    <string name="logout_icon">Logout Icon</string>
+    <string name="back_button">Back Button</string>
+    <string name="dummy_username">David Alexander</string>
+    <string name="ubah_profil">Ubah Profil</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="dummy_email">alex471@gmail.com</string>
+    <string name="simpan">Simpan</string>
+
+    <string name="title_report_problem">Laporkan Masalah</string>
+    <string name="subtitle_report_problem">Kamu punya masalah? Yuk buat laporan</string>
+    <string name="description_report_problem">Laporan yang kamu berikan berguna untuk meningkatkan kualitas produk kami</string>
+    <string name="report_button_text">Laporkan Masalah</string>
+    <string name="illustration">Illustration of reporting a problem</string>
 </resources>
