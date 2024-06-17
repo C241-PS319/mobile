@@ -71,7 +71,12 @@
     <string name="dummy_username">David Alexander</string>
     <string name="ubah_profil">Ubah Profil</string>
     <string name="nama_lengkap">Nama Lengkap</string>
-    <string name="email">Email</string>
     <string name="dummy_email">alex471@gmail.com</string>
     <string name="simpan">Simpan</string>
+
+    <string name="title_report_problem">Laporkan Masalah</string>
+    <string name="subtitle_report_problem">Kamu punya masalah? Yuk buat laporan</string>
+    <string name="description_report_problem">Laporan yang kamu berikan berguna untuk meningkatkan kualitas produk kami</string>
+    <string name="report_button_text">Laporkan Masalah</string>
+    <string name="illustration">Illustration of reporting a problem</string>
 </resources>
