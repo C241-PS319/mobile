@@ -3,12 +3,12 @@
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/ic_tab_home"
         android:title="@string/title_dashboard" />
 
     <item
         android:id="@+id/navigation_history"
-        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:icon="@drawable/ic_tab_history"
         android:title="@string/title_history" />
 
     <item
@@ -17,12 +17,13 @@
 
     <item
         android:id="@+id/navigation_report"
-        android:icon="@drawable/baseline_bug_report_24"
-        android:title="@string/title_report" />
+        android:icon="@drawable/ic_tab_report"
+        android:title="@string/title_report"
+        />
 
     <item
         android:id="@+id/navigation_profile"
-        android:icon="@drawable/baseline_account_circle_24"
+        android:icon="@drawable/ic_tab_profile"
         android:title="@string/title_profile" />
 
 </menu>
