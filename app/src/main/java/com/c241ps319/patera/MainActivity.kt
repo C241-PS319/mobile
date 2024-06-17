@@ -21,8 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        moveToLogin()
-
+//        moveToLogin()
 
 
         val navView: BottomNavigationView = binding.navView
