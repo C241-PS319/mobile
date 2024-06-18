@@ -80,4 +80,6 @@
     <string name="report_button_text">Laporkan Masalah</string>
     <string name="illustration">Illustration of reporting a problem</string>
     <string name="img_dashboard_banner">Dashboard Banner</string>
+    <string name="History">Riwayat</string>
+    <string name="placeholder_history">Belum ada riwayat!</string>
 </resources>
