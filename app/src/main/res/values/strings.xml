@@ -81,4 +81,10 @@
     <string name="report_button_text">Laporkan Masalah</string>
     <string name="illustration">Illustration of reporting a problem</string>
     <string name="img_dashboard_banner">Dashboard Banner</string>
+    <string name="select_image">Pilih Gambar</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="delete_image">delete image</string>
+    <string name="edit_image">edit image</string>
+    <string name="analyze_image">Proses Gambar</string>
 </resources>
