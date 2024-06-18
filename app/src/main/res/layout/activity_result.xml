@@ -14,6 +14,7 @@
 
         <ImageView
             android:id="@+id/result_image"
+            android:layout_marginTop="32dp"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:scaleType="fitCenter"
@@ -24,11 +25,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             tools:ignore="UseCompoundDrawables">
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/carbon_result"
-                android:contentDescription="@string/app_name" />
+<!--            <ImageView-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:src="@drawable/carbon_result"-->
+<!--                android:contentDescription="@string/app_name" />-->
             <TextView
                 android:id="@+id/result_text"
                 android:layout_width="wrap_content"

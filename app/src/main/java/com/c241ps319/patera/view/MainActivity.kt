@@ -23,6 +23,7 @@ import com.c241ps319.patera.view.result.ResultActivity
 import com.yalantis.ucrop.UCrop
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.tensorflow.lite.support.label.Category
 import org.tensorflow.lite.task.vision.classifier.Classifications
 
 class MainActivity : BaseClass(){
@@ -82,7 +83,7 @@ class MainActivity : BaseClass(){
     ) { uri: Uri? ->
         if (uri != null) {
             UCrop.of(uri, Uri.fromFile(cacheDir.resolve("${System.currentTimeMillis()}.jpg")))
-                .withAspectRatio(16F, 9F)
+//                .withAspectRatio(16F, 9F)
                 .withMaxResultSize(2000, 2000)
                 .start(this)
         } else {
@@ -128,22 +129,35 @@ class MainActivity : BaseClass(){
                     showToast(error)
                 }
 
-                override fun onResults(results: List<Classifications>?) {
+                override fun onResults(results: List<Category>?) {
                     val resultString = results?.joinToString("\n") {
-                        val threshold = (it.categories[0].score * 100).toInt()
-                        "${it.categories[0].label} : ${threshold}%"
+                        val threshold = (it.score * 100).toInt()
+                        "${it.displayName} : ${threshold}%"
                     }
                     if (resultString != null) {
                         val data = HistoryEntity(date = convertMillisToDateString(System.currentTimeMillis()), uri = image.toString(), result = resultString)
                         lifecycleScope.launch(Dispatchers.IO) {
-
                             this@MainActivity.runOnUiThread {
                                 viewModel.addHistory(data)
                                 moveToResult(image, resultString)
                             }
-
                         }
                     }
+//                    val resultString = results?.joinToString("\n") {
+//                        val threshold = (it.categories[0].score * 100).toInt()
+//                        "${it.categories[0].label} : ${threshold}%"
+//                    }
+//                    if (resultString != null) {
+//                        val data = HistoryEntity(date = convertMillisToDateString(System.currentTimeMillis()), uri = image.toString(), result = resultString)
+//                        lifecycleScope.launch(Dispatchers.IO) {
+//
+//                            this@MainActivity.runOnUiThread {
+//                                viewModel.addHistory(data)
+//                                moveToResult(image, resultString)
+//                            }
+//
+//                        }
+//                    }
                 }
             }
         )
