@@ -45,16 +45,27 @@
     <!-- Auto layout, variables, and unit scale are not yet supported -->
 
 
-    <View
-        android:id="@+id/rectangle_8"
-        android:layout_width="328dp"
-        android:layout_height="160dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+<!--    <View-->
+<!--        android:id="@+id/rectangle_8"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="160dp"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:background="@drawable/img_dashboard_banner"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/materialDivider" />-->
+    <ImageView
+        android:id="@+id/img_banner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="12dp"
-        android:background="@drawable/rectangle_8"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/img_dashboard_banner"
+        android:src="@drawable/img_dashboard_banner"
+        app:layout_constraintBottom_toTopOf="@+id/panduan_title"
+        app:layout_constraintDimensionRatio="2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialDivider" />
 
@@ -65,12 +76,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="center_vertical"
-        android:lineHeight="20sp"
         android:lineSpacingExtra="-2sp"
         android:text="@string/panduan_title"
         android:textAppearance="@style/panduan_title"
         app:layout_constraintStart_toStartOf="@+id/dashboard_date"
-        app:layout_constraintTop_toBottomOf="@+id/rectangle_8" />
+        app:layout_constraintTop_toBottomOf="@+id/img_banner" />
 
     <TextView
         android:id="@+id/panduan_desc"
@@ -96,7 +106,6 @@
         android:layout_marginEnd="16dp"
         android:gravity="center_vertical"
         android:lineSpacingExtra="2sp"
-        android:lineHeight="18sp"
         style="@style/TextAppearance.AppCompat.Body1"
         android:text="@string/panduan_bullet"
         android:textAppearance="@style/panduan_bullet"

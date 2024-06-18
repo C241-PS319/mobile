@@ -80,4 +80,5 @@
     <string name="description_report_problem">Laporan yang kamu berikan berguna untuk meningkatkan kualitas produk kami</string>
     <string name="report_button_text">Laporkan Masalah</string>
     <string name="illustration">Illustration of reporting a problem</string>
+    <string name="img_dashboard_banner">Dashboard Banner</string>
 </resources>
