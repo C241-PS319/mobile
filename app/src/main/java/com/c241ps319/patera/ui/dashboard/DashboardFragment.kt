@@ -4,13 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.c241ps319.patera.R
 import com.c241ps319.patera.databinding.FragmentDashboardBinding
+import com.c241ps319.patera.ui.ViewModelFactory
+import com.c241ps319.patera.ui.main.MainViewModel
+import com.c241ps319.patera.utils.getCurrentDateAndDay
 
 class DashboardFragment : Fragment() {
 
+    //    Use MainViewModel
+    private lateinit var mainViewModel: MainViewModel
     private var _binding: FragmentDashboardBinding? = null
 
     // This property is only valid between onCreateView and
@@ -22,16 +27,25 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this)[DashboardViewModel::class.java]
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        // get MainViewModel using ViewModelProvider
+        mainViewModel = ViewModelProvider(
+            requireActivity(),
+            ViewModelFactory.getInstance(requireContext())
+        ).get(MainViewModel::class.java)
+
+        // get Session
+        mainViewModel.getSession().observe(viewLifecycleOwner) { session ->
+            session.let {
+                val formattedName = String.format(getString(R.string.halo_nama), it?.name)
+                binding.haloNama.text = formattedName
+            }
         }
+
+        binding.dashboardDate.text = getCurrentDateAndDay()
         return root
     }
 

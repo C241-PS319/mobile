@@ -8,13 +8,13 @@
 
     <TextView
         android:id="@+id/halo_nama"
+        style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:gravity="center_vertical"
         android:text="@string/halo_nama"
-        style="@style/TextAppearance.AppCompat.Title"
         android:textAppearance="@style/halo_nama"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,15 +45,15 @@
     <!-- Auto layout, variables, and unit scale are not yet supported -->
 
 
-<!--    <View-->
-<!--        android:id="@+id/rectangle_8"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="160dp"-->
-<!--        android:layout_alignParentStart="true"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_marginTop="12dp"-->
-<!--        android:background="@drawable/img_dashboard_banner"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/materialDivider" />-->
+    <!--    <View-->
+    <!--        android:id="@+id/rectangle_8"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="160dp"-->
+    <!--        android:layout_alignParentStart="true"-->
+    <!--        android:layout_alignParentTop="true"-->
+    <!--        android:layout_marginTop="12dp"-->
+    <!--        android:background="@drawable/img_dashboard_banner"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/materialDivider" />-->
     <ImageView
         android:id="@+id/img_banner"
         android:layout_width="0dp"
@@ -84,14 +84,14 @@
 
     <TextView
         android:id="@+id/panduan_desc"
+        style="@style/TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center_vertical"
         android:lineSpacingExtra="2sp"
-        style="@style/TextAppearance.AppCompat.Body1"
         android:text="@string/panduan_desc"
         android:textAppearance="@style/panduan_desc"
         app:layout_constraintStart_toStartOf="@+id/panduan_title"
@@ -99,32 +99,18 @@
 
     <TextView
         android:id="@+id/panduan_bullet"
+        style="@style/TextAppearance.AppCompat.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:gravity="center_vertical"
         android:lineSpacingExtra="2sp"
-        style="@style/TextAppearance.AppCompat.Body1"
         android:text="@string/panduan_bullet"
         android:textAppearance="@style/panduan_bullet"
         app:layout_constraintStart_toStartOf="@+id/dashboard_date"
-        app:layout_constraintTop_toBottomOf="@+id/panduan_desc"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/panduan_desc" />
 
-    <TextView
-        android:id="@+id/text_dashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dashboard_date"
-        app:layout_constraintVertical_bias="0.831" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
