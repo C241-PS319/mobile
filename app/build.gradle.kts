@@ -67,6 +67,9 @@ dependencies {
 //    Retrofit
     implementation(libs.retrofit2.converter.gson)
 
+    //u crop
+    implementation(libs.ucrop)
+
 //    For Onboarding
     implementation(libs.dotsindicator)
     implementation(libs.androidx.viewpager2)
@@ -76,4 +79,7 @@ dependencies {
     implementation(libs.tensorflow.lite.support)
     implementation(libs.tensorflow.lite.metadata)
     implementation(kotlin("script-runtime"))
+
+    //shimmer
+    implementation(libs.shimmer)
 }
