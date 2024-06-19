@@ -87,4 +87,6 @@
     <string name="no">Tidak</string>
     <string name="confirm">Konfirmasi</string>
     <string name="logout_confirmation">Apakah Anda yakin ingin keluar dari akun?</string>
+    <string name="something_went_wrong">Terjadi Kesalahan</string>
+    <string name="account_created_successfully">Account created successfully</string>
 </resources>
