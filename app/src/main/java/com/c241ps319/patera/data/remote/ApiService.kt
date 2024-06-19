@@ -1,5 +1,6 @@
 package com.c241ps319.patera.data.remote
 
+import com.c241ps319.patera.data.model.GetHistoriesResponse
 import com.c241ps319.patera.data.model.GetUserResponse
 import com.c241ps319.patera.data.model.LoginResponse
 import com.c241ps319.patera.data.model.RegisterResponse
@@ -38,4 +39,9 @@ interface ApiService {
         @Field("name") name: String,
         @Field("email") email: String,
     ): GetUserResponse
+
+    @GET("user-history/")
+    suspend fun getHistories(
+        @Header("Authorization") token: String
+    ): GetHistoriesResponse
 }
