@@ -134,7 +134,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/btn_next"
+            android:id="@+id/btn_login"
             style="@style/main_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

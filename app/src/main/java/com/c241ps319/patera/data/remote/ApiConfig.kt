@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiConfig {
     companion object {
+        // Get From local.properties (Look at build.gradle module level)
         private const val baseUrl = BuildConfig.BASE_URL
 
         fun getApiService(): ApiService {

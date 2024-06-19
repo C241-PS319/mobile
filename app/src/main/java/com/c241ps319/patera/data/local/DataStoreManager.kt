@@ -3,10 +3,11 @@ package com.c241ps319.patera.data.local
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.c241ps319.patera.data.model.LoginResult
+import com.c241ps319.patera.data.model.UserModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -14,35 +15,50 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "se
 
 class DataStoreManager private constructor(private val dataStore: DataStore<Preferences>) {
     private val NAME_KEY = stringPreferencesKey("name")
-    private val USER_ID_KEY = stringPreferencesKey("userId")
+    private val EMAIL_KEY = stringPreferencesKey("email")
+    private val PICTURE_KEY = stringPreferencesKey("picture")
+    private val PHONE_KEY = stringPreferencesKey("phone")
     private val TOKEN_KEY = stringPreferencesKey("token")
+    private val IS_LOGIN_KEY = booleanPreferencesKey("isLogin")
 
-
-    suspend fun saveLoginResult(loginResult: LoginResult) {
+    suspend fun saveSession(user: UserModel) {
         dataStore.edit { preferences ->
-            preferences[NAME_KEY] = loginResult.name ?: ""
-            preferences[USER_ID_KEY] = loginResult.userId ?: ""
-            preferences[TOKEN_KEY] = loginResult.token ?: ""
+            preferences[NAME_KEY] = user.name
+            preferences[EMAIL_KEY] = user.email
+            preferences[PICTURE_KEY] = user.picture ?: ""
+            preferences[PHONE_KEY] = user.phone ?: ""
+            preferences[TOKEN_KEY] = user.token
+            preferences[IS_LOGIN_KEY] = true
         }
     }
 
-    val loginResultFlow: Flow<LoginResult?> = dataStore.data.map { preferences ->
-        val name = preferences[NAME_KEY]
-        val userId = preferences[USER_ID_KEY]
-        val token = preferences[TOKEN_KEY]
-        if (name != null && userId != null && token != null) {
-            LoginResult(
-                name, userId, token
-            )
-        } else {
-            null
+    suspend fun saveToken(token: String) {
+        dataStore.edit { preferences ->
+            preferences[TOKEN_KEY] = token
+            preferences[IS_LOGIN_KEY] = true
         }
+    }
 
+    val token: Flow<String?> = dataStore.data.map { preferences ->
+        preferences[TOKEN_KEY]
+    }
+
+    val session: Flow<UserModel?> = dataStore.data.map { preferences ->
+        if (preferences[IS_LOGIN_KEY] == false) {
+            null
+        } else {
+            val name = preferences[NAME_KEY] ?: ""
+            val email = preferences[EMAIL_KEY] ?: ""
+            val picture = preferences[PICTURE_KEY] ?: ""
+            val phone = preferences[PHONE_KEY] ?: ""
+            val token = preferences[TOKEN_KEY] ?: ""
+            UserModel(name, email, picture, phone, token, true)
+        }
     }
 
     suspend fun clearData() {
-        dataStore.edit {
-            it.clear()
+        dataStore.edit { preferences ->
+            preferences.clear()
         }
     }
 

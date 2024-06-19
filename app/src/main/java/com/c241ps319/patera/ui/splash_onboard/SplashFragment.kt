@@ -10,7 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.c241ps319.patera.MainActivity
+import com.c241ps319.patera.ui.main.MainActivity
 import com.c241ps319.patera.R
 
 class SplashFragment : Fragment() {

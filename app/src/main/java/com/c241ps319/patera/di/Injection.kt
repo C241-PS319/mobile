@@ -12,7 +12,7 @@ object Injection {
     fun provideRepository(ctx: Context): PateraRepository {
         val apiService = ApiConfig.getApiService()
         val dataStoreManager = DataStoreManager.getInstance(ctx.dataStore)
-        val user = runBlocking { dataStoreManager.loginResultFlow.first() }
+//        val user = runBlocking { dataStoreManager.loginResultFlow.first() }
         return PateraRepository.getInstance(apiService, dataStoreManager)
     }
 }
