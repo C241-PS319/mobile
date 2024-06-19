@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.c241ps319.patera.MainActivity
+import com.c241ps319.patera.ui.main.MainActivity
 import com.c241ps319.patera.databinding.FragmentSecondScreenBinding
 
 class SecondScreenFragment : Fragment() {

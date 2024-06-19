@@ -1,138 +1,119 @@
 package com.c241ps319.patera.ui.auth.login
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
-import android.view.inputmethod.EditorInfo
-import android.widget.EditText
 import android.widget.Toast
-import androidx.annotation.StringRes
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.c241ps319.patera.R
+import com.c241ps319.patera.data.ResultState
+import com.c241ps319.patera.data.model.UserModel
 import com.c241ps319.patera.databinding.ActivityLoginBinding
+import com.c241ps319.patera.ui.ViewModelFactory
+import com.c241ps319.patera.ui.auth.AuthViewModel
 import com.c241ps319.patera.ui.auth.register.RegisterActivity
+import com.c241ps319.patera.ui.main.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 
-    //    private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
+    private val viewModel by viewModels<AuthViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
-    //
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide()
 
         binding.tvRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
 
-        supportActionBar?.hide();
-//
-//        val username = binding.username
-//        val password = binding.password
-//        val login = binding.login
-//        val loading = binding.loading
-//
-//        loginViewModel = ViewModelProvider(this, LoginViewModelFactory())[LoginViewModel::class.java]
-//
-//        loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
-//            val loginState = it ?: return@Observer
-//
-//            // disable login button unless both username / password is valid
-//            login.isEnabled = loginState.isDataValid
-//
-//            if (loginState.usernameError != null) {
-//                username.error = getString(loginState.usernameError)
-//            }
-//            if (loginState.passwordError != null) {
-//                password.error = getString(loginState.passwordError)
-//            }
-//        })
-//
-//        loginViewModel.loginResult.observe(this@LoginActivity, Observer {
-//            val loginResult = it ?: return@Observer
-//
-//            loading.visibility = View.GONE
-//            if (loginResult.error != null) {
-//                showLoginFailed(loginResult.error)
-//            }
-//            if (loginResult.success != null) {
-//                updateUiWithUser(loginResult.success)
-//            }
-//            setResult(Activity.RESULT_OK)
-//
-//            //Complete and destroy login activity once successful
-//            finish()
-//        })
-//
-//        username.afterTextChanged {
-//            loginViewModel.loginDataChanged(
-//                username.text.toString(),
-//                password.text.toString()
-//            )
-//        }
-//
-//        password.apply {
-//            afterTextChanged {
-//                loginViewModel.loginDataChanged(
-//                    username.text.toString(),
-//                    password.text.toString()
-//                )
-//            }
-//
-//            setOnEditorActionListener { _, actionId, _ ->
-//                when (actionId) {
-//                    EditorInfo.IME_ACTION_DONE ->
-//                        loginViewModel.login(
-//                            username.text.toString(),
-//                            password.text.toString()
-//                        )
-//                }
-//                false
-//            }
-//
-//            login.setOnClickListener {
-//                loading.visibility = View.VISIBLE
-//                loginViewModel.login(username.text.toString(), password.text.toString())
-//            }
-//        }
-//    }
-//
-//    private fun updateUiWithUser(model: LoggedInUserView) {
-//        val welcome = getString(R.string.welcome)
-//        val displayName = model.displayName
-//        // TODO : initiate successful logged in experience
-//        Toast.makeText(
-//            applicationContext,
-//            "$welcome $displayName",
-//            Toast.LENGTH_LONG
-//        ).show()
-//    }
-//
-//    private fun showLoginFailed(@StringRes errorString: Int) {
-//        Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
-//    }
+        binding.btnLoginWithGoogle.setOnClickListener {
+            showToast("Fitur Belum Tersedia")
+        }
+
+        binding.btnLogin.setOnClickListener {
+            val email = binding.edLoginEmail.text.toString()
+            val password = binding.edLoginPassword.text.toString()
+
+            var isEmptyFields = false
+            if (email.isEmpty()) {
+                isEmptyFields = true
+                binding.edLoginEmail.error = "Tidak Boleh Kosong!"
+            }
+            if (password.isEmpty()) {
+                isEmptyFields = true
+                binding.edLoginPassword.error = "Tidak Boleh Kosong!"
+            }
+
+            if (!isEmptyFields) {
+                viewModel.login(email, password).observe(this) { result ->
+                    when (result) {
+                        is ResultState.Loading -> {
+                            showLoading(true)
+                        }
+
+                        is ResultState.Error -> {
+                            showToast(result.error.toString())
+                            showLoading(false)
+                        }
+
+                        is ResultState.Success -> {
+                            val token = result.data.data.token
+                            viewModel.getUser(token).observe(this) { userResult ->
+                                when (userResult) {
+                                    is ResultState.Loading -> {
+                                        showLoading(true)
+                                    }
+
+                                    is ResultState.Error -> {
+                                        showToast(userResult.error.toString())
+                                        showLoading(false)
+                                    }
+
+                                    is ResultState.Success -> {
+                                        showLoading(false)
+                                        viewModel.saveSession(
+                                            UserModel(
+                                                name = userResult.data.userData.name,
+                                                email = userResult.data.userData.email,
+                                                phone = userResult.data.userData.phone,
+                                                picture = userResult.data.userData.picture,
+                                                token = token,
+                                                isLogin = true
+                                            )
+                                        )
+                                        val intent = Intent(this, MainActivity::class.java).apply {
+                                            flags =
+                                                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                        }
+                                        showToast("Login sukses!")
+                                        startActivity(intent)
+                                        finish()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-//
-///**
-// * Extension function to simplify setting an afterTextChanged action to EditText components.
-// */
-//fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
-//    this.addTextChangedListener(object : TextWatcher {
-//        override fun afterTextChanged(editable: Editable?) {
-//            afterTextChanged.invoke(editable.toString())
-//        }
-//
-//        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-//
-//        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
-//    })
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressIndicator.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun showToast(string: String) {
+        Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
+    }
+
+    companion object {
+        private val TAG = LoginActivity::class.java.simpleName
+    }
 }

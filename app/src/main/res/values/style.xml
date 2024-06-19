@@ -94,6 +94,13 @@
     </style>
 
 
+    <style name="text_medium_xs" parent="text_medium">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+
+
 
 
 </resources>
