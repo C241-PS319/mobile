@@ -49,6 +49,18 @@ class DashboardFragment : Fragment() {
         return root
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        // get Session & Set Data
+        mainViewModel.getSession().observe(viewLifecycleOwner) { session ->
+            session.let {
+                val formattedName = String.format(getString(R.string.halo_nama), it?.name)
+                binding.haloNama.text = formattedName
+            }
+        }
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

@@ -89,4 +89,5 @@
     <string name="logout_confirmation">Apakah Anda yakin ingin keluar dari akun?</string>
     <string name="something_went_wrong">Terjadi Kesalahan</string>
     <string name="account_created_successfully">Account created successfully</string>
+    <string name="update_profile_confirmation">Apakah anda yakin ingin mengupdate profile?</string>
 </resources>

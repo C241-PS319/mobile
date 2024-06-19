@@ -69,6 +69,12 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 
+    override fun onResume() {
+        super.onResume()
+
+
+    }
+
     companion object {
         private val TAG = MainActivity::class.java.simpleName
     }

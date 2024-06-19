@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.c241ps319.patera.R
+import com.c241ps319.patera.data.model.UserModel
 import com.c241ps319.patera.databinding.FragmentProfileBinding
 import com.c241ps319.patera.ui.ViewModelFactory
 import com.c241ps319.patera.ui.auth.login.LoginActivity
@@ -24,6 +25,8 @@ class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
+    private lateinit var session: UserModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,10 +38,13 @@ class ProfileFragment : Fragment() {
         mainViewModel = ViewModelProvider(
             requireActivity(),
             ViewModelFactory.getInstance(requireContext())
-        ).get(MainViewModel::class.java)
+        )[MainViewModel::class.java]
 
-        // get Session
+        // get Session & Set Data
         mainViewModel.getSession().observe(viewLifecycleOwner) { session ->
+            if (session != null) {
+                this.session = session
+            }
             binding.profileName.text = session?.name
             binding.profileEmail.text = session?.email
             if (session?.picture != null && session.picture == "") {
@@ -54,6 +60,9 @@ class ProfileFragment : Fragment() {
 
         binding.cardEditProfile.setOnClickListener {
             val intent = Intent(activity, UpdateProfileActivity::class.java)
+            intent.putExtra(UpdateProfileActivity.EXTRA_NAME, session.name)
+            intent.putExtra(UpdateProfileActivity.EXTRA_EMAIL, session.email)
+            intent.putExtra(UpdateProfileActivity.EXTRA_TOKEN, session.token)
             startActivity(intent)
         }
 
@@ -79,6 +88,21 @@ class ProfileFragment : Fragment() {
                 .show()
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // get Session & Set Data
+        mainViewModel.getSession().observe(viewLifecycleOwner) { session ->
+            if (session != null) {
+                this.session = session
+            }
+            binding.profileName.text = session?.name
+            binding.profileEmail.text = session?.email
+            if (session?.picture != null && session.picture == "") {
+                Glide.with(requireContext()).load(session.picture).into(binding.profileImage)
+            }
+        }
     }
 
     override fun onDestroyView() {

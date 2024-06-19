@@ -64,6 +64,18 @@ class PateraRepository private constructor(
         }
     }
 
+    fun updateProfile(token: String, name: String, email: String) = liveData {
+        emit(ResultState.Loading)
+        try {
+            val successResponse = apiService.updateProfile(token = "Bearer $token", name, email)
+            emit(ResultState.Success(successResponse))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
+            emit(ResultState.Error(errorResponse.message))
+        }
+    }
+
     suspend fun saveSession(user: UserModel) {
         Log.d(TAG, "saveSession: $user")
         dataStoreManager.saveSession(user)
