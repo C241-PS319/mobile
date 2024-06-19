@@ -23,7 +23,7 @@
     </fragment>
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.c241ps319.patera.MainActivity"
+        android:name="com.c241ps319.patera.ui.main.MainActivity"
         android:label="MainActivity"
         tools:layout="@layout/activity_main" />
     <fragment

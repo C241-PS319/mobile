@@ -6,7 +6,7 @@
     <string name="title_profile">Profile</string>
     <string name="title_scan">Scan</string>
 
-    <string name="halo_nama">Halo ${first_name}</string>
+    <string name="halo_nama">Halo %s</string>
     <string name="dashboard_date">Senin, 27 Mei 2024</string>
     <string name="panduan_title">
         Panduan Penggunaan
@@ -83,4 +83,11 @@
     <string name="img_dashboard_banner">Dashboard Banner</string>
     <string name="History">Riwayat</string>
     <string name="placeholder_history">Belum ada riwayat!</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="confirm">Konfirmasi</string>
+    <string name="logout_confirmation">Apakah Anda yakin ingin keluar dari akun?</string>
+    <string name="something_went_wrong">Terjadi Kesalahan</string>
+    <string name="account_created_successfully">Account created successfully</string>
+    <string name="update_profile_confirmation">Apakah anda yakin ingin mengupdate profile?</string>
 </resources>
