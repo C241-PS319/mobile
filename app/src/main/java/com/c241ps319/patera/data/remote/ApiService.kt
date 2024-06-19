@@ -1,8 +1,8 @@
 package com.c241ps319.patera.data.remote
 
-import com.c241ps319.patera.data.model.ErrorResponse
 import com.c241ps319.patera.data.model.GetUserResponse
 import com.c241ps319.patera.data.model.LoginResponse
+import com.c241ps319.patera.data.model.RegisterResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -16,7 +16,7 @@ interface ApiService {
         @Field("name") name: String,
         @Field("email") email: String,
         @Field("password") password: String,
-    ): ErrorResponse
+    ): RegisterResponse
 
     @FormUrlEncoded
     @POST("auth/login/")
