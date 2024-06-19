@@ -1,6 +1,8 @@
 package com.c241ps319.patera.ui.scan
 
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +18,7 @@ import androidx.fragment.app.viewModels
 import com.c241ps319.patera.databinding.FragmentScanBinding
 import com.c241ps319.patera.helper.ImageClassifierHelper
 import com.c241ps319.patera.ui.ViewModelFactory
+import com.c241ps319.patera.utils.getImageUri
 import org.tensorflow.lite.support.label.Category
 
 class ScanFragment : Fragment() {
@@ -45,7 +48,7 @@ class ScanFragment : Fragment() {
         if (it != null) {
             currentImageUri = it
             Log.d(TAG, "URI: $currentImageUri")
-//            showImage()
+            displayImage()
         } else {
             Toast.makeText(requireContext(), "No media selected!", Toast.LENGTH_SHORT).show()
         }
@@ -67,6 +70,7 @@ class ScanFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -75,19 +79,103 @@ class ScanFragment : Fragment() {
             reqPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
 
-        binding.btnAdd.setOnClickListener {
-            startGallery()
+        val btnGallery = binding.btnGallery
+        val btnCamera = binding.btnCamera
+        val btnEditImage = binding.btnEditImage
+        val btnDeleteImage = binding.btnDeleteImage
+        val btnScan = binding.btnScan
+        val tv = binding.textView
 
+        btnGallery.setOnClickListener {
+            openGallery()
+            if (binding.ivPlant.drawable != null) {
+                btnScan.visibility = View.VISIBLE
+                btnEditImage.visibility = View.VISIBLE
+                btnDeleteImage.visibility = View.VISIBLE
 
+                btnGallery.visibility = View.GONE
+                btnCamera.visibility = View.GONE
+                tv.visibility = View.GONE
+            }
         }
 
-        binding.btnScan.setOnClickListener {
-            analyzeImage(currentImageUri!!)
+
+        btnCamera.setOnClickListener {
+            Toast.makeText(requireContext(), "Camera", Toast.LENGTH_SHORT).show()
+
+            openCamera()
+
+            btnScan.visibility = View.VISIBLE
+            btnEditImage.visibility = View.VISIBLE
+            btnDeleteImage.visibility = View.VISIBLE
+
+            btnGallery.visibility = View.GONE
+            btnCamera.visibility = View.GONE
+            tv.visibility = View.GONE
+        }
+
+        btnEditImage.setOnClickListener {
+            Toast.makeText(requireContext(), "Edit Image", Toast.LENGTH_SHORT).show()
+
+            btnScan.visibility = View.GONE
+            btnEditImage.visibility = View.GONE
+            btnDeleteImage.visibility = View.GONE
+
+            btnGallery.visibility = View.VISIBLE
+            btnCamera.visibility = View.VISIBLE
+            tv.visibility = View.VISIBLE
+        }
+
+        btnDeleteImage.setOnClickListener {
+            Toast.makeText(requireContext(), "Delete Image", Toast.LENGTH_SHORT).show()
+
+            binding.ivPlant.setImageDrawable(Resources.getSystem().getDrawable(android.R.drawable.ic_menu_gallery))
+
+            btnScan.visibility = View.GONE
+            btnEditImage.visibility = View.GONE
+            btnDeleteImage.visibility = View.GONE
+
+            btnGallery.visibility = View.VISIBLE
+            btnCamera.visibility = View.VISIBLE
+            tv.visibility = View.VISIBLE
+        }
+
+        btnScan.setOnClickListener {
+//            analyzeImage(currentImageUri!!)
+        }
+
+
+    }
+
+    private fun openCamera() {
+        currentImageUri = getImageUri(requireContext())
+        cameraLauncher.launch(currentImageUri!!)
+    }
+
+    private val cameraLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
+        if (success) displayImage()
+    }
+
+    private fun openGallery() {
+        galleryLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+    }
+
+    private val galleryLauncher = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
+        if (uri != null) {
+            currentImageUri = uri
+            displayImage()
+        } else {
+            Toast.makeText(requireContext(), "No media selected!", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun startGallery() {
-        launcherGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+    private fun displayImage() {
+        Log.d(TAG, "displayImage: $currentImageUri")
+        if (currentImageUri != null) {
+            binding.ivPlant.setImageURI(currentImageUri)
+        } else {
+            Toast.makeText(requireContext(), "Something went wrong!", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun showLoading(b: Boolean) {
@@ -111,7 +199,7 @@ class ScanFragment : Fragment() {
                             if (it.isNotEmpty() ) {
 //                                val resultLabel = it[0].label
 //                                val resultScore = it[0].score
-                                binding.tvResult.text = it.toString()
+//                                binding.tvResult.text = it.toString()
                             }
                         }
                     }
@@ -125,11 +213,8 @@ class ScanFragment : Fragment() {
 
     }
 
-
     companion object {
         private val TAG = "ScanFragment"
         private const val REQUIRED_PERMISSION = android.Manifest.permission.CAMERA
     }
-
-
 }
