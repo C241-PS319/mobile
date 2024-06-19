@@ -1,8 +1,19 @@
 package com.c241ps319.patera.data.repository
 
-import android.content.Context
+import androidx.lifecycle.liveData
+import com.c241ps319.patera.data.ResultState
+import com.c241ps319.patera.data.local.DataStoreManager
+import com.c241ps319.patera.data.model.LoginResponse
+import com.c241ps319.patera.data.model.LoginResult
+import com.c241ps319.patera.data.remote.ApiService
+import com.google.gson.Gson
+import kotlinx.coroutines.flow.Flow
+import retrofit2.HttpException
 
-class PateraRepository private constructor(ctx: Context) {
+class PateraRepository private constructor(
+    private val apiService: ApiService,
+    private val dataStoreManager: DataStoreManager
+) {
 //    private val imageClassifierHelper = ImageClassifierHelper
 //
 //    fun classifyImage(uri: Uri) = liveData {
@@ -15,13 +26,56 @@ class PateraRepository private constructor(ctx: Context) {
 //        }
 //    }
 
+    fun register(name: String, email: String, password: String) = liveData {
+        emit(ResultState.Loading)
+        try {
+            val successResponse = apiService.register(name, email, password)
+            emit(ResultState.Success(successResponse))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
+            emit(ResultState.Error(errorResponse.message))
+        }
+    }
+
+    fun login(email: String, password: String) = liveData {
+        emit(ResultState.Loading)
+        try {
+            val successResponse = apiService.login(email, password)
+            try {
+                saveLoginResult(successResponse.loginResult!!)
+            } catch (e: Exception) {
+                emit(ResultState.Error(e.message))
+            }
+            emit(ResultState.Success(successResponse))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
+            emit(ResultState.Error(errorResponse.message))
+        }
+    }
+
+    // Save login result
+    suspend fun saveLoginResult(loginResult: LoginResult) {
+        dataStoreManager.saveLoginResult(loginResult)
+    }
+
+    // Retrieve login result
+    val loginResultFlow: Flow<LoginResult?> = dataStoreManager.loginResultFlow
+
+    suspend fun logout() {
+        dataStoreManager.clearData()
+    }
 
 
     companion object {
         @Volatile
         private var instance: PateraRepository? = null
-        fun getInstance(ctx: Context): PateraRepository = instance ?: synchronized(this) {
-            instance ?: PateraRepository(ctx)
+        fun getInstance(
+            apiService: ApiService,
+            dataStoreManager: DataStoreManager
+        ): PateraRepository = instance ?: synchronized(this) {
+            instance ?: PateraRepository(apiService, dataStoreManager)
         }.also { instance = it }
     }
 

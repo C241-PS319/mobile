@@ -1,7 +1,7 @@
 package com.c241ps319.patera.data.repository
 
 import com.c241ps319.patera.data.local.LoginDataSource
-import com.c241ps319.patera.data.Result
+import com.c241ps319.patera.data.ResultState
 import com.c241ps319.patera.data.model.LoggedInUser
 
 /**
@@ -29,11 +29,11 @@ class LoginRepository(val dataSource: LoginDataSource) {
         dataSource.logout()
     }
 
-    fun login(username: String, password: String): Result<LoggedInUser> {
+    fun login(username: String, password: String): ResultState<LoggedInUser> {
         // handle login
         val result = dataSource.login(username, password)
 
-        if (result is Result.Success) {
+        if (result is ResultState.Success) {
             setLoggedInUser(result.data)
         }
 
