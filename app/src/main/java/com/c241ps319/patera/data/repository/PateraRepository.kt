@@ -1,5 +1,6 @@
 package com.c241ps319.patera.data.repository
 
+import android.util.Log
 import androidx.lifecycle.liveData
 import com.c241ps319.patera.data.ResultState
 import com.c241ps319.patera.data.local.DataStoreManager
@@ -14,6 +15,7 @@ class PateraRepository private constructor(
     private val apiService: ApiService,
     private val dataStoreManager: DataStoreManager
 ) {
+
 //    private val imageClassifierHelper = ImageClassifierHelper
 //
 //    fun classifyImage(uri: Uri) = liveData {
@@ -42,12 +44,6 @@ class PateraRepository private constructor(
         emit(ResultState.Loading)
         try {
             val successResponse = apiService.login(email, password)
-            try {
-                // Save Token
-                saveToken(successResponse.data.token)
-            } catch (e: Exception) {
-                emit(ResultState.Error(e.message))
-            }
             emit(ResultState.Success(successResponse))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
@@ -59,22 +55,7 @@ class PateraRepository private constructor(
     fun getUser(token: String) = liveData {
         emit(ResultState.Loading)
         try {
-            val successResponse = apiService.getUser(token)
-            try {
-                // Save Session
-                saveSession(
-                    UserModel(
-                        name = successResponse.userData.name,
-                        email = successResponse.userData.email,
-                        phone = successResponse.userData.phone,
-                        picture = successResponse.userData.picture,
-                        token = token,
-                        isLogin = true
-                    )
-                )
-            } catch (e: Exception) {
-                emit(ResultState.Error(e.message))
-            }
+            val successResponse = apiService.getUser("Bearer $token")
             emit(ResultState.Success(successResponse))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
@@ -83,11 +64,8 @@ class PateraRepository private constructor(
         }
     }
 
-    suspend fun saveToken(token: String) {
-        dataStoreManager.saveToken(token)
-    }
-
     suspend fun saveSession(user: UserModel) {
+        Log.d(TAG, "saveSession: $user")
         dataStoreManager.saveSession(user)
     }
 
@@ -100,6 +78,8 @@ class PateraRepository private constructor(
     }
 
     companion object {
+        private val TAG = PateraRepository::class.java.simpleName
+
         @Volatile
         private var instance: PateraRepository? = null
         fun getInstance(
@@ -109,5 +89,6 @@ class PateraRepository private constructor(
             instance ?: PateraRepository(apiService, dataStoreManager)
         }.also { instance = it }
     }
+
 
 }

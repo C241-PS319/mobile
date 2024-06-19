@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.c241ps319.patera.data.ResultState
+import com.c241ps319.patera.data.model.UserModel
 import com.c241ps319.patera.databinding.ActivityLoginBinding
 import com.c241ps319.patera.ui.ViewModelFactory
 import com.c241ps319.patera.ui.auth.AuthViewModel
@@ -48,28 +49,51 @@ class LoginActivity : AppCompatActivity() {
 
             if (!isEmptyFields) {
                 viewModel.login(email, password).observe(this) { result ->
-                    if (result != null) {
-                        when (result) {
-                            is ResultState.Loading -> {
-                                showLoading(true)
-                            }
+                    when (result) {
+                        is ResultState.Loading -> {
+                            showLoading(true)
+                        }
 
-                            is ResultState.Error -> {
-                                showToast(result.error.toString())
-                                showLoading(false)
-                            }
+                        is ResultState.Error -> {
+                            showToast(result.error.toString())
+                            showLoading(false)
+                        }
 
-                            is ResultState.Success -> {
-                                showLoading(false)
-                                val intent = Intent(this, MainActivity::class.java).apply {
-                                    flags =
-                                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        is ResultState.Success -> {
+                            val token = result.data.data.token
+                            viewModel.getUser(token).observe(this) { userResult ->
+                                when (userResult) {
+                                    is ResultState.Loading -> {
+                                        showLoading(true)
+                                    }
+
+                                    is ResultState.Error -> {
+                                        showToast(userResult.error.toString())
+                                        showLoading(false)
+                                    }
+
+                                    is ResultState.Success -> {
+                                        showLoading(false)
+                                        viewModel.saveSession(
+                                            UserModel(
+                                                name = userResult.data.userData.name,
+                                                email = userResult.data.userData.email,
+                                                phone = userResult.data.userData.phone,
+                                                picture = userResult.data.userData.picture,
+                                                token = token,
+                                                isLogin = true
+                                            )
+                                        )
+                                        val intent = Intent(this, MainActivity::class.java).apply {
+                                            flags =
+                                                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                        }
+                                        showToast("Welcome!")
+                                        startActivity(intent)
+                                        finish()
+                                    }
                                 }
-                                showToast("Welcome!")
-                                startActivity(intent)
-                                finish()
                             }
-
                         }
                     }
                 }

@@ -15,7 +15,7 @@ class ViewModelFactory private constructor(private val pateraRepository: PateraR
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {
-                ScanViewModel(pateraRepository) as T
+                MainViewModel(pateraRepository) as T
             }
 
             modelClass.isAssignableFrom(ScanViewModel::class.java) -> {
@@ -23,7 +23,7 @@ class ViewModelFactory private constructor(private val pateraRepository: PateraR
             }
 
             modelClass.isAssignableFrom(AuthViewModel::class.java) -> {
-                ScanViewModel(pateraRepository) as T
+                AuthViewModel(pateraRepository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class : " + modelClass.name)

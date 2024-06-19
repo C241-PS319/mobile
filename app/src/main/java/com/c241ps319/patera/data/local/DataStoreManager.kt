@@ -32,19 +32,8 @@ class DataStoreManager private constructor(private val dataStore: DataStore<Pref
         }
     }
 
-    suspend fun saveToken(token: String) {
-        dataStore.edit { preferences ->
-            preferences[TOKEN_KEY] = token
-            preferences[IS_LOGIN_KEY] = true
-        }
-    }
-
-    val token: Flow<String?> = dataStore.data.map { preferences ->
-        preferences[TOKEN_KEY]
-    }
-
     val session: Flow<UserModel?> = dataStore.data.map { preferences ->
-        if (preferences[IS_LOGIN_KEY] == false) {
+        if (preferences[IS_LOGIN_KEY] == false || preferences[IS_LOGIN_KEY] == null) {
             null
         } else {
             val name = preferences[NAME_KEY] ?: ""
