@@ -72,6 +72,12 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="regular_button">
+        <item name="android:background">@drawable/shape_radius_green</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <style name="text_regular_xs" parent="text_regular">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/text_500</item>
@@ -86,6 +92,13 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+
+    <style name="text_medium_xs" parent="text_medium">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
 
 
 

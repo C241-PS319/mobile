@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "531693631238",
+    "project_id": "patera-capstone",
+    "storage_bucket": "patera-capstone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531693631238:android:72571f95f963c13d025087",
+        "android_client_info": {
+          "package_name": "com.c241ps319.patera"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "531693631238-ptg3bu3vsfeu2hu4kv51n434gulg0tfj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.c241ps319.patera",
+            "certificate_hash": "4ecfec9b3387b5f5e142b186ba3e21012d0af561"
+          }
+        },
+        {
+          "client_id": "531693631238-git8b4k9gnfb450bcla5l727p7nie1gl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9PgvkKNdZyzQfYaaQyUwZ_rx0xi40mxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "531693631238-git8b4k9gnfb450bcla5l727p7nie1gl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

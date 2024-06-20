@@ -1,6 +1,9 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -15,6 +18,16 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        //load the values from .properties file
+        val keystoreFile = project.rootProject.file("local.properties")
+        val properties = Properties()
+        properties.load(keystoreFile.inputStream())
+
+        //return empty key in case something goes wrong
+        val baseUrl = properties.getProperty("BASE_URL")
+
+        buildConfigField("String", "BASE_URL", baseUrl)
     }
 
     buildTypes {
@@ -34,7 +47,10 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
+        buildConfig = true
         viewBinding = true
+        mlModelBinding = true
+        buildConfig = true
     }
 }
 
@@ -48,18 +64,67 @@ dependencies {
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.annotation)
+    implementation(libs.androidx.exifinterface)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+//    Lifecycle KTX
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
 
+//    circle Image
     implementation(libs.circleimageview)
+
+//    Retrofit
     implementation(libs.retrofit2.converter.gson)
 
+    //u crop
+    implementation(libs.ucrop)
+
+//    For Onboarding
     implementation(libs.dotsindicator)
     implementation(libs.androidx.viewpager2)
+
+    //    TF
+    implementation(libs.tensorflow.lite.task.vision)
+    implementation(libs.tensorflow.lite.support)
+    implementation(libs.tensorflow.lite.metadata)
+
+
+    //    Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit2.converter.gson)
+    implementation(libs.logging.interceptor)
+
+    implementation(libs.androidx.lifecycle.runtime.ktx) // untuk lifecycleScope
+
+    //    datastore
+    implementation(libs.androidx.datastore.preferences)
+
+    //    coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // Glide
+    implementation(libs.glide)
+    
+    implementation(kotlin("script-runtime"))
+
+    //shimmer
+    implementation(libs.shimmer)
+
+//    firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.auth)
+
+    // Credential Manager
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.googleid)
+
+    implementation(libs.play.services.auth)
 }

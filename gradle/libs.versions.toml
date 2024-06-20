@@ -1,6 +1,10 @@
 [versions]
-agp = "8.5.0"
+agp = "8.4.1"
 dotsindicator = "5.0"
+firebaseBom = "33.1.0"
+playServicesAuth = "21.2.0"
+credentials = "1.2.2"
+googleid = "1.1.0"
 kotlin = "1.9.21"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -18,13 +22,42 @@ legacySupportV4 = "1.0.0"
 fragmentKtx = "1.8.0"
 circleimageview = "3.1.0"
 annotation = "1.8.0"
-converterGson = "2.9.0"
+tensorflowLiteTaskVision = "0.4.4"
 viewpager2 = "1.1.0"
+exifinterface = "1.3.7"
+shimmer = "0.5.0"
+ucrop = "2.2.8"
+
+#Retrofit
+converterGson = "2.9.0"
+lifecycleRuntimeKtx = "2.8.2"
+loggingInterceptor = "4.12.0"
+retrofit = "2.9.0"
+
+#datastore
+datastorePreferences = "1.1.1"
+
+#coroutines
+kotlinxCoroutinesCore = "1.7.3"
+
+#Glide
+glide = "4.16.0"
+googleGmsGoogleServices = "4.4.2"
+firebaseAuth = "23.0.0"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "dotsindicator" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
+#noinspection CredentialDependency
+androidx-credentials = { module = "androidx.credentials:credentials", version.ref = "credentials" }
+androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentials" }
+googleid = { module = "com.google.android.libraries.identity.googleid:googleid", version.ref = "googleid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -40,9 +73,32 @@ androidx-legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
 circleimageview = { module = "de.hdodenhof:circleimageview", version.ref = "circleimageview" }
 androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
+tensorflow-lite-metadata = { module = "org.tensorflow:tensorflow-lite-metadata", version.ref = "tensorflowLiteTaskVision" }
+tensorflow-lite-support = { module = "org.tensorflow:tensorflow-lite-support", version.ref = "tensorflowLiteTaskVision" }
+tensorflow-lite-task-vision = { module = "org.tensorflow:tensorflow-lite-task-vision", version.ref = "tensorflowLiteTaskVision" }
+androidx-exifinterface = { group = "androidx.exifinterface", name = "exifinterface", version.ref = "exifinterface" }
+shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
+ucrop = { module = "com.github.yalantis:ucrop", version.ref = "ucrop" }
+
+# Retrofit + Lifecycle Scope
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit2-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
+
+# Data store
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
+
+# Kotlin Coroutines
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesCore" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
+
+# Glide
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 

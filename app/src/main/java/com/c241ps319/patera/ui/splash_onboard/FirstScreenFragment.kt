@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
-import com.c241ps319.patera.MainActivity
+import com.c241ps319.patera.ui.main.MainActivity
 import com.c241ps319.patera.R
 import com.c241ps319.patera.databinding.FragmentFirstScreenBinding
 

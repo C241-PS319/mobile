@@ -25,9 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/ubah_profil"
+        android:textColor="#434347"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="#434347"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,75 +47,86 @@
         android:id="@+id/label_full_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:text="@string/nama_lengkap"
         android:textColor="#27272A"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        android:layout_marginStart="16dp" />
+        app:layout_constraintTop_toBottomOf="@id/title" />
 
     <!-- Full Name EditText -->
     <EditText
         android:id="@+id/edit_text_full_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:autofillHints="Masukkan nama lengkap baru"
         android:background="@drawable/edit_text_background"
-        android:hint="@string/dummy_username"
         android:inputType="textPersonName"
         android:padding="12dp"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/label_full_name"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+        app:layout_constraintTop_toBottomOf="@id/label_full_name" />
 
     <!-- Email Label -->
     <TextView
         android:id="@+id/label_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/email"
         android:textColor="#27272A"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edit_text_full_name"
-        android:layout_marginStart="16dp"/>
+        app:layout_constraintTop_toBottomOf="@id/edit_text_full_name" />
 
     <!-- Email EditText -->
     <EditText
         android:id="@+id/edit_text_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:autofillHints="Masukkan email baru"
         android:background="@drawable/edit_text_background"
-        android:hint="@string/dummy_email"
         android:inputType="textEmailAddress"
         android:padding="12dp"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/label_email"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+        app:layout_constraintTop_toBottomOf="@id/label_email" />
 
     <!-- Save Button -->
     <Button
         android:id="@+id/button_save"
+        style="@style/main_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
-        style="@style/main_button"
         android:text="@string/simpan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ProgressBar
+        android:id="@+id/progressIndicator"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

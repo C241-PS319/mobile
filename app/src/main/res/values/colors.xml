@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="text_800">#434347</color>
     <color name="text_500">#71717A</color>
+    <color name="text_100">#E6E6E7</color>
     <color name="text_50">#F5F5F6</color>
     <color name="primary_500">#22C55E</color>
     <color name="primary_400">#4ADE80</color>
@@ -21,4 +22,5 @@
     <color name="red">#FF0000</color>
     <color name="light_gray">#E0E0E0</color>
     <color name="shadow_color">#B0B0B0</color>
+    <color name="shimmerColor">#C2C2C2</color>
 </resources>
