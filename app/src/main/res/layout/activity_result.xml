@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Hasil Prediksi"
+        android:text="@string/Result"
         android:textColor="#434347"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -62,56 +62,99 @@
                 android:scaleType="fitCenter"
                 android:src="@drawable/img_add_photo" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/prediction_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Hasil Prediksi"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/result_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="@string/result"
-                    android:textSize="20sp" />
-            </LinearLayout>
 
             <TextView
+                android:id="@+id/prediction_title"
+                style="@style/heading_sm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="16dp"
-                android:text="Rekomendasi"
-                android:textSize="24sp"
+                android:text="@string/heading_result"
                 android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/result_text"
+                style="@style/text_regular_sm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/result" />
+
+
+            <TextView
+                style="@style/heading_sm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/Cause" />
+
+            <TextView
+                android:id="@+id/tv_cause"
+                style="@style/text_regular_xs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/dummy_cause"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <TextView
+                style="@style/heading_sm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/healing" />
+
+            <TextView
+                android:id="@+id/tv_healing"
+                style="@style/text_regular_xs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/dummy_healing"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <TextView
+                style="@style/heading_sm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/prevention" />
 
             <TextView
                 android:id="@+id/tv_prevention"
                 style="@style/text_regular_xs"
-                android:visibility="gone"
-                tools:visibility="visible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:text="@string/dummy_prevention" />
+                android:layout_marginHorizontal="16dp"
+                android:text="@string/dummy_prevention"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
+            <TextView
+                style="@style/heading_sm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/cost" />
+
+            <TextView
+                android:id="@+id/tv_cost"
+                style="@style/text_regular_xs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/dummy_cost"
+                android:visibility="gone"
+                tools:visibility="visible" />
 
             <com.facebook.shimmer.ShimmerFrameLayout
                 android:id="@+id/shimmer_layout"
@@ -121,7 +164,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginHorizontal="16dp"
                     android:orientation="vertical">
 
                     <include layout="@layout/news_card_shimmer" />

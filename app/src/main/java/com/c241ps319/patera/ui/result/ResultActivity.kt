@@ -105,33 +105,21 @@ class ResultActivity : AppCompatActivity() {
                                 binding.tvPrevention.visibility = View.VISIBLE
                                 binding.tvPrevention.text =
                                     state.data.recommendationData?.prevention ?: ""
+                                binding.tvCost.visibility = View.VISIBLE
+                                binding.tvCost.text =
+                                    state.data.recommendationData?.prevention ?: ""
+                                binding.tvCause.visibility = View.VISIBLE
+                                binding.tvCause.text =
+                                    state.data.recommendationData?.prevention ?: ""
+                                binding.tvHealing.visibility = View.VISIBLE
+                                binding.tvHealing.text =
+                                    state.data.recommendationData?.prevention ?: ""
                             }
                         }
                     }
                 }
             }
         }
-
-
-
-
-//        TODO: Display recommendation
-//        viewModel.news.observe(this){
-//                articles ->
-//            when(articles){
-//                is ResultState.Loading -> {
-//                    binding.shimmerLayout.startShimmer()
-//                }
-//                is ResultState.Success -> {
-//                    showRecyclerView()
-//                    setNewsData(articles.data)
-//                }
-//                is ResultState.Error -> {
-//                    Log.e("ResultActivity", "Error: $articles")
-//                    Toast.makeText(this, "Error: $articles", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//        }
     }
 
     private fun showLoading(isLoading: Boolean) {
