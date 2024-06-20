@@ -100,20 +100,20 @@ class ResultActivity : AppCompatActivity() {
                                 showLoading(false)
                                 showToast("Sukses menyimpan riwayat")
 
-                                // Set data rekomendasi
+                                // Set data
                                 binding.shimmerLayout.visibility = View.GONE
                                 binding.tvPrevention.visibility = View.VISIBLE
                                 binding.tvPrevention.text =
                                     state.data.recommendationData?.prevention ?: ""
                                 binding.tvCost.visibility = View.VISIBLE
                                 binding.tvCost.text =
-                                    state.data.recommendationData?.prevention ?: ""
+                                    state.data.recommendationData?.cost ?: ""
                                 binding.tvCause.visibility = View.VISIBLE
                                 binding.tvCause.text =
-                                    state.data.recommendationData?.prevention ?: ""
+                                    state.data.recommendationData?.cause ?: ""
                                 binding.tvHealing.visibility = View.VISIBLE
                                 binding.tvHealing.text =
-                                    state.data.recommendationData?.prevention ?: ""
+                                    state.data.recommendationData?.healing ?: ""
                             }
                         }
                     }
