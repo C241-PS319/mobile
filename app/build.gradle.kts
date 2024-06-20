@@ -24,9 +24,11 @@ android {
         properties.load(keystoreFile.inputStream())
 
         //return empty key in case something goes wrong
-        val baseUrl = properties.getProperty("BASE_URL")
+        val baseUrl1 = properties.getProperty("BASE_URL1")
+        val baseUrl2 = properties.getProperty("BASE_URL2")
 
-        buildConfigField("String", "BASE_URL", baseUrl)
+        buildConfigField("String", "BASE_URL1", baseUrl1)
+        buildConfigField("String", "BASE_URL2", baseUrl2)
     }
 
     buildTypes {
