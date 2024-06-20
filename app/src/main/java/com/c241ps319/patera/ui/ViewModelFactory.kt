@@ -8,6 +8,7 @@ import com.c241ps319.patera.di.Injection
 import com.c241ps319.patera.ui.auth.AuthViewModel
 import com.c241ps319.patera.ui.main.MainViewModel
 import com.c241ps319.patera.ui.profile.ProfileViewModel
+import com.c241ps319.patera.ui.result.RecommendationViewModel
 import com.c241ps319.patera.ui.scan.ScanViewModel
 
 class ViewModelFactory private constructor(private val pateraRepository: PateraRepository) :
@@ -29,6 +30,10 @@ class ViewModelFactory private constructor(private val pateraRepository: PateraR
 
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(pateraRepository) as T
+            }
+
+            modelClass.isAssignableFrom(RecommendationViewModel::class.java) -> {
+                RecommendationViewModel(pateraRepository) as T
             }
 
             else -> throw IllegalArgumentException("Unknown ViewModel class : " + modelClass.name)
