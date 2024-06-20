@@ -208,22 +208,49 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun updateUI(currentUser: FirebaseUser?) {
-        if (currentUser != null) {
-            val userModel = UserModel(
-                name = currentUser.displayName ?: "",
-                email = currentUser.email ?: "",
-                phone = currentUser.phoneNumber ?: "",
-                picture = currentUser.photoUrl.toString(),
-                token = "",  // TODO: get token from firebase
-                isLogin = true,
-                isGoogleLogin = true
-            )
+        currentUser?.getIdToken(true)?.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val idToken = task.result.token
+                Log.d(TAG, "updateUI AWALLL: $idToken")
+                if (idToken != null) {
+                    viewModel.loginGoogle(idToken).observe(this) { result ->
+                        when (result) {
+                            is ResultState.Loading -> {
+                                showLoading(true)
+                            }
 
-            viewModel.saveSession(userModel)
+                            is ResultState.Error -> {
+                                showToast(result.error.toString())
+                                showLoading(false)
+                            }
 
-            val intent = Intent(this@LoginActivity, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+                            is ResultState.Success -> {
+                                val token = result.data.data.token
+
+                                Log.d(TAG, "updateUI: $token")
+
+                                val userModel = UserModel(
+                                    name = currentUser.displayName ?: "",
+                                    email = currentUser.email ?: "",
+                                    phone = currentUser.phoneNumber ?: "",
+                                    picture = currentUser.photoUrl.toString(),
+                                    token = token,
+                                    isLogin = true,
+                                    isGoogleLogin = true
+                                )
+
+                                viewModel.saveSession(userModel)
+
+                                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            }
+                        }
+                    }
+                }
+            } else {
+                Log.e(TAG, "Error getting ID token", task.exception)
+            }
         }
     }
 
