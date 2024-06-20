@@ -11,6 +11,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.c241ps319.patera.ui.main.MainActivity
 import com.c241ps319.patera.R
 import com.c241ps319.patera.databinding.FragmentFirstScreenBinding
+import com.c241ps319.patera.ui.auth.login.LoginActivity
 
 
 class FirstScreenFragment : Fragment() {
@@ -31,7 +32,7 @@ class FirstScreenFragment : Fragment() {
 
         binding.tvSkip.setOnClickListener {
             onBoardingIsFinished()
-            val intent = Intent(requireContext(), MainActivity::class.java)
+            val intent = Intent(requireContext(), LoginActivity::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
         }

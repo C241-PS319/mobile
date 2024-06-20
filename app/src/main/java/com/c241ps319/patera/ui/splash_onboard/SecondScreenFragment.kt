@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.c241ps319.patera.ui.main.MainActivity
 import com.c241ps319.patera.databinding.FragmentSecondScreenBinding
+import com.c241ps319.patera.ui.auth.login.LoginActivity
 
 class SecondScreenFragment : Fragment() {
 
@@ -24,7 +25,7 @@ class SecondScreenFragment : Fragment() {
 
         binding.btnStart.setOnClickListener {
             onBoardingIsFinished()
-            val intent = Intent(requireContext(), MainActivity::class.java)
+            val intent = Intent(requireContext(), LoginActivity::class.java)
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
             startActivity(intent)
         }
