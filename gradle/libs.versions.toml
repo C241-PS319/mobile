@@ -1,6 +1,10 @@
 [versions]
 agp = "8.4.1"
 dotsindicator = "5.0"
+firebaseBom = "33.1.0"
+playServicesAuth = "21.2.0"
+credentials = "1.2.2"
+googleid = "1.1.0"
 kotlin = "1.9.21"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -26,8 +30,8 @@ ucrop = "2.2.8"
 
 #Retrofit
 converterGson = "2.9.0"
-lifecycleRuntimeKtx = "2.8.0"
-loggingInterceptor = "4.11.0"
+lifecycleRuntimeKtx = "2.8.2"
+loggingInterceptor = "4.12.0"
 retrofit = "2.9.0"
 
 #datastore
@@ -38,12 +42,22 @@ kotlinxCoroutinesCore = "1.7.3"
 
 #Glide
 glide = "4.16.0"
+googleGmsGoogleServices = "4.4.2"
+firebaseAuth = "23.0.0"
 
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "dotsindicator" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
+#noinspection CredentialDependency
+androidx-credentials = { module = "androidx.credentials:credentials", version.ref = "credentials" }
+androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentials" }
+googleid = { module = "com.google.android.libraries.identity.googleid:googleid", version.ref = "googleid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -86,4 +100,5 @@ glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 
