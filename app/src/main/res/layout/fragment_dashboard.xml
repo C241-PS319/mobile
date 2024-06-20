@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dashboard.DashboardFragment">
+
+    <TextView
+        android:id="@+id/halo_nama"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:text="@string/halo_nama"
+        android:textAppearance="@style/halo_nama"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dashboard_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="-2sp"
+        android:text="@string/dashboard_date"
+        android:textAppearance="@style/dashboard_date"
+        app:layout_constraintStart_toStartOf="@+id/halo_nama"
+        app:layout_constraintTop_toBottomOf="@+id/halo_nama" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/materialDivider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_date"
+        tools:ignore="NotSibling" />
+
+
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+
+
+    <!--    <View-->
+    <!--        android:id="@+id/rectangle_8"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="160dp"-->
+    <!--        android:layout_alignParentStart="true"-->
+    <!--        android:layout_alignParentTop="true"-->
+    <!--        android:layout_marginTop="12dp"-->
+    <!--        android:background="@drawable/img_dashboard_banner"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/materialDivider" />-->
+    <ImageView
+        android:id="@+id/img_banner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/img_dashboard_banner"
+        android:src="@drawable/img_dashboard_banner"
+        app:layout_constraintBottom_toTopOf="@+id/panduan_title"
+        app:layout_constraintDimensionRatio="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialDivider" />
+
+    <TextView
+        android:id="@+id/panduan_title"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="-2sp"
+        android:text="@string/panduan_title"
+        android:textAppearance="@style/panduan_title"
+        app:layout_constraintStart_toStartOf="@+id/dashboard_date"
+        app:layout_constraintTop_toBottomOf="@+id/img_banner" />
+
+    <TextView
+        android:id="@+id/panduan_desc"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="2sp"
+        android:text="@string/panduan_desc"
+        android:textAppearance="@style/panduan_desc"
+        app:layout_constraintStart_toStartOf="@+id/panduan_title"
+        app:layout_constraintTop_toBottomOf="@+id/panduan_title" />
+
+    <TextView
+        android:id="@+id/panduan_bullet"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:lineSpacingExtra="2sp"
+        android:text="@string/panduan_bullet"
+        android:textAppearance="@style/panduan_bullet"
+        app:layout_constraintStart_toStartOf="@+id/dashboard_date"
+        app:layout_constraintTop_toBottomOf="@+id/panduan_desc" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

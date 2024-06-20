@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/shape_radius_white_10"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/iv_item_history"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        style="@style/text_medium_xs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Tanggal: 30/05"
+        android:textColor="@color/text_800"
+        app:layout_constraintStart_toEndOf="@id/iv_item_history"
+        app:layout_constraintTop_toTopOf="@id/iv_item_history" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        style="@style/text_medium_xs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Waktu: 14:00"
+        android:textColor="@color/text_800"
+        app:layout_constraintBottom_toBottomOf="@id/iv_item_history"
+        app:layout_constraintStart_toEndOf="@id/iv_item_history" />
+
+    <ImageView
+        android:id="@+id/btn_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/arrow_right_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

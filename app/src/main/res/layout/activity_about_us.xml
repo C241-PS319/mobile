@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.about.AboutUsActivity">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/back_button"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Tentang Kami"
+        android:textColor="#434347"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.divider.MaterialDivider
+        android:id="@+id/materialDivider"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/materialDivider">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/layout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/bangkit" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="16dp"
+                    android:text="C241-PS319"
+                    android:textColor="@color/text_800" />
+            </LinearLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_hengki"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/hengki"
+                app:layout_constraintBottom_toBottomOf="@id/layout_hengki"
+                app:layout_constraintTop_toTopOf="@id/layout_hengki" />
+
+            <LinearLayout
+                android:id="@+id/layout_hengki"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/iv_hengki"
+                app:layout_constraintTop_toBottomOf="@id/layout1">
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Benediktus Hengki Setiawan"
+                    android:textColor="@color/text_800" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Machine Learning"
+                    android:textColor="@color/text_300"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Universitas Bina Nusantara"
+                    android:textColor="@color/primary_500"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_iqbal"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/iqbal"
+                app:layout_constraintBottom_toBottomOf="@id/layout_iqbal"
+                app:layout_constraintTop_toTopOf="@id/layout_iqbal" />
+
+            <LinearLayout
+                android:id="@+id/layout_iqbal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/iv_iqbal"
+                app:layout_constraintTop_toBottomOf="@id/layout_hengki">
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Iqbal Pahlevi Amin"
+                    android:textColor="@color/text_800" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Machine Learning"
+                    android:textColor="@color/text_300"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Universitas Indonesia"
+                    android:textColor="@color/primary_500"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_rama"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/rama"
+                app:layout_constraintBottom_toBottomOf="@id/layout_rama"
+                app:layout_constraintTop_toTopOf="@id/layout_rama" />
+
+            <LinearLayout
+                android:id="@+id/layout_rama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/iv_rama"
+                app:layout_constraintTop_toBottomOf="@id/layout_iqbal">
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ramadhan Ihsani Yulfa"
+                    android:textColor="@color/text_800" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Machine Learning"
+                    android:textColor="@color/text_300"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Universitas Bina Nusantara"
+                    android:textColor="@color/primary_500"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_mario"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/mario"
+                app:layout_constraintBottom_toBottomOf="@id/layout_mario"
+                app:layout_constraintTop_toTopOf="@id/layout_mario" />
+
+            <LinearLayout
+                android:id="@+id/layout_mario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/iv_mario"
+                app:layout_constraintTop_toBottomOf="@id/layout_rama">
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Eugenius Mario Situmorang"
+                    android:textColor="@color/text_800" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cloud Computing"
+                    android:textColor="@color/text_300"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Universitas Indonesia"
+                    android:textColor="@color/primary_500"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_dicky"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/dicky"
+                app:layout_constraintBottom_toBottomOf="@id/layout_dicky"
+                app:layout_constraintTop_toTopOf="@id/layout_dicky" />
+
+            <LinearLayout
+                android:id="@+id/layout_dicky"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/iv_dicky"
+                app:layout_constraintTop_toBottomOf="@id/layout_mario">
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dicky Surya Nanda"
+                    android:textColor="@color/text_800" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cloud Computing"
+                    android:textColor="@color/text_300"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Universitas Brawijaya"
+                    android:textColor="@color/primary_500"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_vicky"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/vicky"
+                app:layout_constraintBottom_toBottomOf="@id/layout_vicky"
+                app:layout_constraintTop_toTopOf="@id/layout_vicky" />
+
+            <LinearLayout
+                android:id="@+id/layout_vicky"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/iv_vicky"
+                app:layout_constraintTop_toBottomOf="@id/layout_dicky">
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Muhammad Vicky Maulana"
+                    android:textColor="@color/text_800" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile Development"
+                    android:textColor="@color/text_300"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Universitas Indonesia"
+                    android:textColor="@color/primary_500"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_lutfi"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/lutfi"
+                app:layout_constraintBottom_toBottomOf="@id/layout_lutfi"
+                app:layout_constraintTop_toTopOf="@id/layout_lutfi" />
+
+            <LinearLayout
+                android:id="@+id/layout_lutfi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/iv_lutfi"
+                app:layout_constraintTop_toBottomOf="@id/layout_vicky">
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lutfi Aldri Permana"
+                    android:textColor="@color/text_800" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile Development"
+                    android:textColor="@color/text_300"
+                    android:textSize="14sp" />
+
+                <TextView
+                    style="@style/heading_sm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UIN Sultan Syarif Kasim Riau"
+                    android:textColor="@color/primary_500"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

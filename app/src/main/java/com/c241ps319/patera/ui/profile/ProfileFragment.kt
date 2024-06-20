@@ -1,0 +1,150 @@
+package com.c241ps319.patera.ui.profile
+
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
+import androidx.credentials.ClearCredentialStateRequest
+import androidx.credentials.CredentialManager
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
+import com.c241ps319.patera.R
+import com.c241ps319.patera.data.model.UserModel
+import com.c241ps319.patera.databinding.FragmentProfileBinding
+import com.c241ps319.patera.ui.ViewModelFactory
+import com.c241ps319.patera.ui.auth.AuthViewModel
+import com.c241ps319.patera.ui.auth.login.LoginActivity
+import com.c241ps319.patera.ui.main.MainViewModel
+import com.c241ps319.patera.ui.profile.about.AboutUsActivity
+import com.c241ps319.patera.ui.profile.update.UpdateProfileActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.launch
+
+class ProfileFragment : Fragment() {
+
+    private lateinit var auth: FirebaseAuth
+
+//    get authViewModel
+    private val authViewModel by viewModels<AuthViewModel> {
+        ViewModelFactory.getInstance(requireContext())
+    }
+    //    Use MainViewModel
+    private lateinit var mainViewModel: MainViewModel
+
+    private var _binding: FragmentProfileBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var session: UserModel
+
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentProfileBinding.inflate(inflater, container, false)
+
+        // get MainViewModel using ViewModelProvider
+        mainViewModel = ViewModelProvider(
+            requireActivity(),
+            ViewModelFactory.getInstance(requireContext())
+        )[MainViewModel::class.java]
+
+        // get Session & Set Data
+        mainViewModel.getSession().observe(viewLifecycleOwner) { session ->
+            if (session != null) {
+                this.session = session
+            }
+            binding.profileName.text = session?.name
+            binding.profileEmail.text = session?.email
+            if (session?.picture != null && session.picture == "") {
+                Glide.with(requireContext()).load(session.picture).into(binding.profileImage)
+            }
+        }
+
+        auth = authViewModel.auth
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.cardEditProfile.setOnClickListener {
+            val intent = Intent(activity, UpdateProfileActivity::class.java)
+            intent.putExtra(UpdateProfileActivity.EXTRA_NAME, session.name)
+            intent.putExtra(UpdateProfileActivity.EXTRA_EMAIL, session.email)
+            intent.putExtra(UpdateProfileActivity.EXTRA_TOKEN, session.token)
+            startActivity(intent)
+        }
+
+        binding.cardLogout.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle(getString(R.string.confirm))
+                .setMessage(getString(R.string.logout_confirmation))
+                .setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+
+                    if (session.isGoogleLogin) {
+                        lifecycleScope.launch {
+                            val credentialManager = CredentialManager.create(requireContext())
+                            auth.signOut()
+                            credentialManager.clearCredentialState(ClearCredentialStateRequest())
+                            startActivity(Intent(requireContext(), LoginActivity::class.java))
+                        }
+                    }
+
+                    // clear session
+                    mainViewModel.logout()
+
+                    // move to Login
+                    val intent = Intent(requireContext(), LoginActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    dialog.dismiss()
+                }
+                .setNegativeButton(getString(R.string.no)) { dialog, _ ->
+                    // Cancel the dialog
+                    dialog.dismiss()
+                }
+                .create()
+                .show()
+        }
+
+        binding.cardAboutUs.setOnClickListener {
+            val intent = Intent(activity, AboutUsActivity::class.java)
+            startActivity(intent)
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // get Session & Set Data
+        mainViewModel.getSession().observe(viewLifecycleOwner) { session ->
+            if (session != null) {
+                this.session = session
+            }
+            binding.profileName.text = session?.name
+            binding.profileEmail.text = session?.email
+            if (session?.picture != null && session.picture == "") {
+                Glide.with(requireContext()).load(session.picture).into(binding.profileImage)
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    companion object {
+        private const val TAG = "ProfileFragment"
+    }
+}
