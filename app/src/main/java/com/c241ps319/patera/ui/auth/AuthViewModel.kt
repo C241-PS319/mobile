@@ -19,6 +19,8 @@ class AuthViewModel(private val pateraRepository: PateraRepository) : ViewModel(
     fun login(email: String, password: String) =
         pateraRepository.login(email, password)
 
+    fun loginGoogle(firebaseToken: String) = pateraRepository.loginGoogle(firebaseToken)
+
     fun getUser(token: String) = pateraRepository.getUser(token)
 
     fun saveSession(userModel: UserModel) = viewModelScope.launch {

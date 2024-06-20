@@ -1,6 +1,7 @@
 package com.c241ps319.patera.data.remote
 
 import com.c241ps319.patera.data.model.GetUserResponse
+import com.c241ps319.patera.data.model.LoginGoogleResponse
 import com.c241ps319.patera.data.model.LoginResponse
 import com.c241ps319.patera.data.model.RegisterResponse
 import retrofit2.http.Field
@@ -25,6 +26,12 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String,
     ): LoginResponse
+
+    @FormUrlEncoded
+    @POST("auth/google-auth/")
+    suspend fun loginGoogle(
+        @Field("firebase_id_token") firebaseToken: String,
+    ): LoginGoogleResponse
 
     @GET("auth/user/")
     suspend fun getUser(
