@@ -1,5 +1,6 @@
 package com.c241ps319.patera.ui.report
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,10 +29,11 @@ class ReportFragment : Fragment() {
         _binding = FragmentReportBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textReport
-//        reportViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+        _binding!!.reportButton.setOnClickListener {
+            val intent = Intent(activity, ReportActivity::class.java)
+            startActivity(intent)
+        }
+
         return root
     }
 
