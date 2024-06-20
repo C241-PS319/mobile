@@ -35,7 +35,7 @@ class DashboardFragment : Fragment() {
         mainViewModel = ViewModelProvider(
             requireActivity(),
             ViewModelFactory.getInstance(requireContext())
-        ).get(MainViewModel::class.java)
+        )[MainViewModel::class.java]
 
         // get Session
         mainViewModel.getSession().observe(viewLifecycleOwner) { session ->

@@ -18,4 +18,6 @@ class MainViewModel(private val pateraRepository: PateraRepository) : ViewModel(
             pateraRepository.logout()
         }
     }
+
+    fun getHistories(token: String) = pateraRepository.getHistories(token)
 }

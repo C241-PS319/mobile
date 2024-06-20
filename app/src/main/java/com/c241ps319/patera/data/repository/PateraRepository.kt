@@ -4,7 +4,10 @@ import android.util.Log
 import androidx.lifecycle.liveData
 import com.c241ps319.patera.data.ResultState
 import com.c241ps319.patera.data.local.DataStoreManager
+import com.c241ps319.patera.data.model.GetHistoriesResponse
+import com.c241ps319.patera.data.model.GetUserResponse
 import com.c241ps319.patera.data.model.LoginResponse
+import com.c241ps319.patera.data.model.RegisterResponse
 import com.c241ps319.patera.data.model.UserModel
 import com.c241ps319.patera.data.remote.ApiService
 import com.google.gson.Gson
@@ -35,7 +38,7 @@ class PateraRepository private constructor(
             emit(ResultState.Success(successResponse))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
-            val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
+            val errorResponse = Gson().fromJson(errorBody, RegisterResponse::class.java)
             emit(ResultState.Error(errorResponse.message))
         }
     }
@@ -59,7 +62,7 @@ class PateraRepository private constructor(
             emit(ResultState.Success(successResponse))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
-            val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
+            val errorResponse = Gson().fromJson(errorBody, GetUserResponse::class.java)
             emit(ResultState.Error(errorResponse.message))
         }
     }
@@ -71,7 +74,19 @@ class PateraRepository private constructor(
             emit(ResultState.Success(successResponse))
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
-            val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
+            val errorResponse = Gson().fromJson(errorBody, GetUserResponse::class.java)
+            emit(ResultState.Error(errorResponse.message))
+        }
+    }
+
+    fun getHistories(token: String) = liveData {
+        emit(ResultState.Loading)
+        try {
+            val successResponse = apiService.getHistories("Bearer $token")
+            emit(ResultState.Success(successResponse))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, GetHistoriesResponse::class.java)
             emit(ResultState.Error(errorResponse.message))
         }
     }
