@@ -4,9 +4,14 @@ import android.util.Log
 import androidx.lifecycle.liveData
 import com.c241ps319.patera.data.ResultState
 import com.c241ps319.patera.data.local.DataStoreManager
+
 import com.c241ps319.patera.data.model.GetHistoriesResponse
 import com.c241ps319.patera.data.model.GetUserResponse
+
+import com.c241ps319.patera.data.model.LoginGoogleResponse
+
 import com.c241ps319.patera.data.model.LoginResponse
+import com.c241ps319.patera.data.model.RecommendationResponse
 import com.c241ps319.patera.data.model.RegisterResponse
 import com.c241ps319.patera.data.model.UserModel
 import com.c241ps319.patera.data.remote.ApiService
@@ -55,6 +60,18 @@ class PateraRepository private constructor(
         }
     }
 
+    fun loginGoogle(firebaseToken: String) = liveData {
+        emit(ResultState.Loading)
+        try {
+            val successResponse = apiService.loginGoogle(firebaseToken)
+            emit(ResultState.Success(successResponse))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, LoginGoogleResponse::class.java)
+            emit(ResultState.Error(errorResponse.message))
+        }
+    }
+
     fun getUser(token: String) = liveData {
         emit(ResultState.Loading)
         try {
@@ -91,6 +108,19 @@ class PateraRepository private constructor(
         }
     }
 
+    fun getRecommendation(token: String, pathLabel: Int, picture: String) = liveData {
+        emit(ResultState.Loading)
+        try {
+            val successResponse = apiService.postRecommendation(token = "Bearer $token", pathLabel, picture)
+            emit(ResultState.Success(successResponse))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, RecommendationResponse::class.java)
+            emit(ResultState.Error(errorResponse.message))
+        }
+    }
+
+
     suspend fun saveSession(user: UserModel) {
         Log.d(TAG, "saveSession: $user")
         dataStoreManager.saveSession(user)
@@ -116,6 +146,4 @@ class PateraRepository private constructor(
             instance ?: PateraRepository(apiService, dataStoreManager)
         }.also { instance = it }
     }
-
-
 }

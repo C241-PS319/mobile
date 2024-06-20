@@ -2,24 +2,40 @@ package com.c241ps319.patera.ui.profile
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.credentials.ClearCredentialStateRequest
+import androidx.credentials.CredentialManager
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.c241ps319.patera.R
 import com.c241ps319.patera.data.model.UserModel
 import com.c241ps319.patera.databinding.FragmentProfileBinding
 import com.c241ps319.patera.ui.ViewModelFactory
+import com.c241ps319.patera.ui.auth.AuthViewModel
 import com.c241ps319.patera.ui.auth.login.LoginActivity
 import com.c241ps319.patera.ui.main.MainViewModel
 import com.c241ps319.patera.ui.profile.about.AboutUsActivity
 import com.c241ps319.patera.ui.profile.update.UpdateProfileActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.launch
 
 class ProfileFragment : Fragment() {
 
+    private lateinit var auth: FirebaseAuth
+
+//    get authViewModel
+    private val authViewModel by viewModels<AuthViewModel> {
+        ViewModelFactory.getInstance(requireContext())
+    }
     //    Use MainViewModel
     private lateinit var mainViewModel: MainViewModel
 
@@ -53,6 +69,8 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        auth = authViewModel.auth
+
         return binding.root
     }
 
@@ -72,6 +90,16 @@ class ProfileFragment : Fragment() {
                 .setTitle(getString(R.string.confirm))
                 .setMessage(getString(R.string.logout_confirmation))
                 .setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+
+                    if (session.isGoogleLogin) {
+                        lifecycleScope.launch {
+                            val credentialManager = CredentialManager.create(requireContext())
+                            auth.signOut()
+                            credentialManager.clearCredentialState(ClearCredentialStateRequest())
+                            startActivity(Intent(requireContext(), LoginActivity::class.java))
+                        }
+                    }
+
                     // clear session
                     mainViewModel.logout()
 
@@ -114,5 +142,9 @@ class ProfileFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        private const val TAG = "ProfileFragment"
     }
 }

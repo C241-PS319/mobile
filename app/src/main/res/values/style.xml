@@ -83,6 +83,11 @@
         <item name="android:textColor">@color/text_500</item>
     </style>
 
+    <style name="text_regular_sm" parent="text_regular">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_800</item>
+    </style>
+
     <style name="text_semibold_xs" parent="text_medium">
         <item name="android:textSize">12sp</item>
         <item name="android:textStyle">bold</item>

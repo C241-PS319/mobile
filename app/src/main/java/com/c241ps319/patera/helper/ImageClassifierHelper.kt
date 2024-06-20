@@ -5,7 +5,6 @@ import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
-import android.os.SystemClock
 import android.provider.MediaStore
 import android.util.Log
 import com.c241ps319.patera.R
@@ -73,7 +72,8 @@ class ImageClassifierHelper(
             tensorImage = imageProcessor.process(tensorImage)
 
             val byteBuffer = tensorImage.buffer
-            val inputFeature = TensorBuffer.createFixedSize(intArrayOf(1, 320, 320, 3), DataType.FLOAT32)
+            val inputFeature =
+                TensorBuffer.createFixedSize(intArrayOf(1, 320, 320, 3), DataType.FLOAT32)
             inputFeature.loadBuffer(byteBuffer)
 
             val output = imageClassifier?.process(inputFeature)
@@ -88,7 +88,8 @@ class ImageClassifierHelper(
             Log.d(TAG, outputFeature2?.floatArray?.toList().toString())
             Log.d(TAG, outputFeature3?.floatArray?.toList().toString())
 
-            val result = processOutput(outputFeature0, outputFeature1, outputFeature2, outputFeature3)
+            val result =
+                processOutput(outputFeature0, outputFeature1, outputFeature2, outputFeature3)
 
             Log.d(TAG, result.toString())
 
@@ -110,14 +111,17 @@ class ImageClassifierHelper(
                 for (i in scores.indices) {
                     val score = scores[i]
                     val indexLabel = labels[i]
-                    if (score > threshold) {
-                        val (displayName, label) = getDiseaseAndLabelByIndex(indexLabel.toInt())
-                        val category = Category.create(label, displayName, score, labels[i].toInt())
-                        categories.add(category)
-                    }
+
+//                    if (score > threshold) {
 //                    val (displayName, label) = getDiseaseAndLabelByIndex(indexLabel.toInt())
 //                    val category = Category.create(label, displayName, score, labels[i].toInt())
+//                    Log.d(TAG, "processOutput $i: $category")
 //                    categories.add(category)
+//                    }
+
+                    val (displayName, label) = getDiseaseAndLabelByIndex(indexLabel.toInt())
+                    val category = Category.create(label, displayName, score, labels[i].toInt())
+                    categories.add(category)
                 }
                 categories.sortByDescending { it.score }
             }
@@ -155,7 +159,10 @@ class ImageClassifierHelper(
             }
             Pair(disease, label)
         } else {
-            Pair("Invalid index. Please enter a number between 0 and ${diseases.size - 1}.", "Unknown")
+            Pair(
+                "Invalid index. Please enter a number between 0 and ${diseases.size - 1}.",
+                "Unknown"
+            )
         }
     }
 

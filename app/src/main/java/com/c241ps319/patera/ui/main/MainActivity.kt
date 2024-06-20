@@ -14,6 +14,9 @@ import com.c241ps319.patera.databinding.ActivityMainBinding
 import com.c241ps319.patera.ui.ViewModelFactory
 import com.c241ps319.patera.ui.auth.login.LoginActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,14 +27,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Get Session
-        viewModel.getSession().observe(this) { session ->
-            Log.d(TAG, "onCreate: $session")
-            if (session == null) {
-                moveToLogin()
-            }
-        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

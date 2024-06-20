@@ -25,6 +25,12 @@
             android:name=".ui.profile.about.AboutUsActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.report.ReportSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.report.ReportActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.result.ResultActivity"
             android:exported="false" />
         <activity

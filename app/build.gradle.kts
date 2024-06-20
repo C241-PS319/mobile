@@ -3,6 +3,7 @@ import java.util.Properties
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -24,9 +25,11 @@ android {
         properties.load(keystoreFile.inputStream())
 
         //return empty key in case something goes wrong
-        val baseUrl = properties.getProperty("BASE_URL")
+        val baseUrl1 = properties.getProperty("BASE_URL1")
+        val baseUrl2 = properties.getProperty("BASE_URL2")
 
-        buildConfigField("String", "BASE_URL", baseUrl)
+        buildConfigField("String", "BASE_URL1", baseUrl1)
+        buildConfigField("String", "BASE_URL2", baseUrl2)
     }
 
     buildTypes {
@@ -114,4 +117,16 @@ dependencies {
 
     //shimmer
     implementation(libs.shimmer)
+
+//    firebase
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.auth)
+
+    // Credential Manager
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.googleid)
+
+    implementation(libs.play.services.auth)
 }

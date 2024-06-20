@@ -22,7 +22,6 @@ class HistoryFragment : Fragment() {
     //    Use MainViewModel
     private var session: UserModel? = null
 
-
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -70,15 +69,14 @@ class HistoryFragment : Fragment() {
                                 binding.tvHistoryNull.visibility = View.GONE
                                 val adapter = HistoryAdapter(histories!!)
                                 binding.rvHistory.adapter = adapter
+                            } else {
+                                binding.tvHistoryNull.visibility = View.VISIBLE
                             }
                         }
                     }
                 }
             }
         }
-
-
-
         return root
     }
 
