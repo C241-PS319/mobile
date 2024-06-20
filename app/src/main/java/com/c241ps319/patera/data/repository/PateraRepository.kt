@@ -4,8 +4,12 @@ import android.util.Log
 import androidx.lifecycle.liveData
 import com.c241ps319.patera.data.ResultState
 import com.c241ps319.patera.data.local.DataStoreManager
+
 import com.c241ps319.patera.data.model.GetHistoriesResponse
 import com.c241ps319.patera.data.model.GetUserResponse
+
+import com.c241ps319.patera.data.model.LoginGoogleResponse
+
 import com.c241ps319.patera.data.model.LoginResponse
 import com.c241ps319.patera.data.model.RecommendationResponse
 import com.c241ps319.patera.data.model.RegisterResponse
@@ -52,6 +56,18 @@ class PateraRepository private constructor(
         } catch (e: HttpException) {
             val errorBody = e.response()?.errorBody()?.string()
             val errorResponse = Gson().fromJson(errorBody, LoginResponse::class.java)
+            emit(ResultState.Error(errorResponse.message))
+        }
+    }
+
+    fun loginGoogle(firebaseToken: String) = liveData {
+        emit(ResultState.Loading)
+        try {
+            val successResponse = apiService.loginGoogle(firebaseToken)
+            emit(ResultState.Success(successResponse))
+        } catch (e: HttpException) {
+            val errorBody = e.response()?.errorBody()?.string()
+            val errorResponse = Gson().fromJson(errorBody, LoginGoogleResponse::class.java)
             emit(ResultState.Error(errorResponse.message))
         }
     }
