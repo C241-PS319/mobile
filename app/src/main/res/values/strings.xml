@@ -104,4 +104,23 @@
     <string name="account_created_successfully">Account created successfully</string>
     <string name="update_profile_confirmation">Apakah anda yakin ingin mengupdate profile?</string>
     <string name="web_client_id">531693631238-git8b4k9gnfb450bcla5l727p7nie1gl.apps.googleusercontent.com</string>
+    <string name="report_description_hint">Jelaskan masalah kamu</string>
+    <string name="report_description_title">Tulis masalah kamu</string>
+    <string name="unggah_foto">Unggah foto</string>
+    <string name="kirim_laporan">Kirim Laporan</string>
+    <string name="unggah_foto_opsional">Unggah foto (opsional)</string>
+    <string name="empty" />
+
+    <string name="select_category_prompt">Pilih kategori</string>
+    <string name="pilih_kategori_masalah">Pilih kategori masalah</string>
+    <string name="laporan_kamu_berhasil_terkirim">Laporan kamu berhasil terkirim</string>
+    <string name="kembali_ke_beranda">Kembali ke Beranda</string>
+    <string-array name="report_categories">
+        <item>Akurasi prediksi</item>
+        <item>Rekomendasi tidak muncul</item>
+        <item>Fitur tidak berfungsi</item>
+        <item>Aplikasi lambat</item>
+        <item>Aplikasi lambat</item>
+        <item>Lainnya...</item>
+    </string-array>
 </resources>
