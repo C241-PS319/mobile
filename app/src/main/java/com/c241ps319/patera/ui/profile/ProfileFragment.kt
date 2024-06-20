@@ -21,6 +21,7 @@ import com.c241ps319.patera.ui.ViewModelFactory
 import com.c241ps319.patera.ui.auth.AuthViewModel
 import com.c241ps319.patera.ui.auth.login.LoginActivity
 import com.c241ps319.patera.ui.main.MainViewModel
+import com.c241ps319.patera.ui.profile.about.AboutUsActivity
 import com.c241ps319.patera.ui.profile.update.UpdateProfileActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -114,6 +115,11 @@ class ProfileFragment : Fragment() {
                 }
                 .create()
                 .show()
+        }
+
+        binding.cardAboutUs.setOnClickListener {
+            val intent = Intent(activity, AboutUsActivity::class.java)
+            startActivity(intent)
         }
 
     }
