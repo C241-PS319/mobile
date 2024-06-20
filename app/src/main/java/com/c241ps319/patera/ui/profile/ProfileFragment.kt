@@ -15,6 +15,7 @@ import com.c241ps319.patera.databinding.FragmentProfileBinding
 import com.c241ps319.patera.ui.ViewModelFactory
 import com.c241ps319.patera.ui.auth.login.LoginActivity
 import com.c241ps319.patera.ui.main.MainViewModel
+import com.c241ps319.patera.ui.profile.about.AboutUsActivity
 import com.c241ps319.patera.ui.profile.update.UpdateProfileActivity
 
 class ProfileFragment : Fragment() {
@@ -86,6 +87,11 @@ class ProfileFragment : Fragment() {
                 }
                 .create()
                 .show()
+        }
+
+        binding.cardAboutUs.setOnClickListener {
+            val intent = Intent(activity, AboutUsActivity::class.java)
+            startActivity(intent)
         }
 
     }
