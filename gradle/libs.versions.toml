@@ -20,6 +20,9 @@ circleimageview = "3.1.0"
 annotation = "1.8.0"
 tensorflowLiteTaskVision = "0.4.4"
 viewpager2 = "1.1.0"
+exifinterface = "1.3.7"
+shimmer = "0.5.0"
+ucrop = "2.2.8"
 
 #Retrofit
 converterGson = "2.9.0"
@@ -59,6 +62,9 @@ androidx-annotation = { group = "androidx.annotation", name = "annotation", vers
 tensorflow-lite-metadata = { module = "org.tensorflow:tensorflow-lite-metadata", version.ref = "tensorflowLiteTaskVision" }
 tensorflow-lite-support = { module = "org.tensorflow:tensorflow-lite-support", version.ref = "tensorflowLiteTaskVision" }
 tensorflow-lite-task-vision = { module = "org.tensorflow:tensorflow-lite-task-vision", version.ref = "tensorflowLiteTaskVision" }
+androidx-exifinterface = { group = "androidx.exifinterface", name = "exifinterface", version.ref = "exifinterface" }
+shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
+ucrop = { module = "com.github.yalantis:ucrop", version.ref = "ucrop" }
 
 # Retrofit + Lifecycle Scope
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }

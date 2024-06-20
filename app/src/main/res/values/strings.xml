@@ -81,6 +81,19 @@
     <string name="report_button_text">Laporkan Masalah</string>
     <string name="illustration">Illustration of reporting a problem</string>
     <string name="img_dashboard_banner">Dashboard Banner</string>
+
+    <string name="select_image">Pilih Foto</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="delete_image">delete image</string>
+    <string name="edit_image">edit image</string>
+    <string name="analyze_image">Proses Gambar</string>
+
+    <string name="articles">Articles</string>
+    <string name="titles">The Best Title You Will Read All Day (Probably)</string>
+    <string name="analyze">Analyze</string>
+    <string name="result">Tanaman kamu mengalami ... </string>
+
     <string name="History">Riwayat</string>
     <string name="placeholder_history">Belum ada riwayat!</string>
     <string name="yes">Ya</string>

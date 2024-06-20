@@ -46,6 +46,7 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
+        buildConfig = true
         viewBinding = true
         mlModelBinding = true
         buildConfig = true
@@ -62,6 +63,7 @@ dependencies {
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.annotation)
+    implementation(libs.androidx.exifinterface)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -78,6 +80,9 @@ dependencies {
 //    Retrofit
     implementation(libs.retrofit2.converter.gson)
 
+    //u crop
+    implementation(libs.ucrop)
+
 //    For Onboarding
     implementation(libs.dotsindicator)
     implementation(libs.androidx.viewpager2)
@@ -86,6 +91,7 @@ dependencies {
     implementation(libs.tensorflow.lite.task.vision)
     implementation(libs.tensorflow.lite.support)
     implementation(libs.tensorflow.lite.metadata)
+
 
     //    Retrofit
     implementation(libs.retrofit)
@@ -103,4 +109,9 @@ dependencies {
 
     // Glide
     implementation(libs.glide)
+    
+    implementation(kotlin("script-runtime"))
+
+    //shimmer
+    implementation(libs.shimmer)
 }
