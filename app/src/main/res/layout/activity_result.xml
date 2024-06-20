@@ -58,9 +58,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginTop="32dp"
+                android:contentDescription="@string/analyze"
                 android:scaleType="fitCenter"
-                android:src="@drawable/img_add_photo"
-                android:contentDescription="@string/analyze" />
+                android:src="@drawable/img_add_photo" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -90,8 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:text="@string/result"
-                    android:textSize="20sp"
-                     />
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <TextView
@@ -103,31 +102,49 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <com.facebook.shimmer.ShimmerFrameLayout
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/tv_prevention"
+                style="@style/text_regular_xs"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:text="@string/dummy_prevention" />
+
+
+            <com.facebook.shimmer.ShimmerFrameLayout
                 android:id="@+id/shimmer_layout"
-                >
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
-                    android:orientation="vertical"
-                    >
-                    <include layout="@layout/news_card_shimmer"/>
-                    <include layout="@layout/news_card_shimmer"/>
-                    <include layout="@layout/news_card_shimmer"/>
+                    android:orientation="vertical">
+
+                    <include layout="@layout/news_card_shimmer" />
+
+                    <include layout="@layout/news_card_shimmer" />
+
+                    <include layout="@layout/news_card_shimmer" />
                 </LinearLayout>
             </com.facebook.shimmer.ShimmerFrameLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvNews"
-                android:visibility="gone"
-                android:layout_marginTop="4dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
         </LinearLayout>
     </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressIndicator"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
